@@ -20,18 +20,18 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
     npm i
     ```
 3. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein.
-    ### Sample
+    ### Beispiel
     ```javascript
-		{
-			module: "MMM-NINA",
-			position: "top_right",
-			config: {
+        {
+            module: "MMM-NINA",
+            position: "top_right",
+            config: {
                 updateIntervalInSeconds: 120,
                 maxAgeInHours: 6,
                 showNoWarning: true
                 ags: "110000000000",
             }
-		}
+        }
     ```
 
 ### Optionen
