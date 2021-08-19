@@ -1,0 +1,31 @@
+.nina-wrapper {
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.nina-icon {
+  font-size: 2rem;
+  margin-right: 12px;
+}
+
+.nina-alert {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nina-wrapper .nina-alert.severity-Fine{
+  color: green;
+}
+
+.nina-wrapper .nina-alert.severity-Minor{
+  color: yellow;
+}
+
+.nina-alert .nina-issue-date {
+  font-size: 0.8rem;
+}
+
+.nina-wrapper p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}

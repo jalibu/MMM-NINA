@@ -1,0 +1,19 @@
+{% if alerts.length > 0 %}
+  <div class="normal medium nina-wrapper">
+    {% for alert in alerts %}
+      <div class="nina-alert severity-{{ alert.payload.data.severity }}">
+        <i class="nina-icon fas fa-exclamation-triangle"></i>
+        <div>
+          <p class="nina-title"> {{ alert.i18nTitle.de }}</p>
+          <p class="nina-issue-date">{{ "issueTime" | translate | safe }} {{alert.sent}}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% elif config.showNoWarning %}
+  <div class="normal medium nina-wrapper">
+    <div class="nina-alert severity-Fine">
+      <p class="nina-title"><i class="fas fa-check-circle"></i> {{ "noWarnings" | translate | safe }}</p>
+    </div>
+  </div>
+{% endif %}
