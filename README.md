@@ -28,7 +28,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
             config: {
                 updateIntervalInSeconds: 120,
                 maxAgeInHours: 6,
-                showNoWarning: true
+                showNoWarning: true,
                 ags: "110000000000",
             }
         }
