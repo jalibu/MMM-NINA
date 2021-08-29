@@ -2,12 +2,16 @@ Module.register('MMM-NINA', {
   defaults: {
     updateIntervalInSeconds: 120,
     maxAgeInHours: 6,
-    ags: "110000000000",
+    ags: '110000000000',
     showNoWarning: false
   },
 
   getStyles() {
-    return ["font-awesome.css", 'MMM-NINA.css']
+    return ['font-awesome.css', 'MMM-NINA.css']
+  },
+
+  getScripts: function () {
+    return ['moment.js']
   },
 
   getTranslations() {
@@ -47,7 +51,10 @@ Module.register('MMM-NINA', {
 
   socketNotificationReceived(notificationIdentifier: string, payload: any) {
     if (notificationIdentifier === 'NINA_ALERTS_RESPONSE') {
-      this.alerts = payload
+      this.alerts = payload.map((alert) => {
+        alert.date = moment(new Date(alert.sent)).format("DD.MM.YYYY - HH:mm")
+        return alert
+      })
       this.updateDom()
       console.debug('Alerts', this.alerts)
     }
