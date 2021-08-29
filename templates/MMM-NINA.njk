@@ -5,7 +5,7 @@
         <i class="nina-icon fas fa-exclamation-triangle"></i>
         <div>
           <p class="nina-title"> {{ alert.i18nTitle.de }}</p>
-          <p class="nina-issue-date">{{ "issueTime" | translate | safe }} {{alert.sent}}</p>
+          <p class="nina-issue-date">{{ "issueTime" | translate | safe }} {{alert.date}}</p>
         </div>
       </div>
     {% endfor %}
@@ -13,7 +13,7 @@
 {% elif config.showNoWarning %}
   <div class="normal medium nina-wrapper">
     <div class="nina-alert severity-Fine">
-      <p class="nina-title"><i class="fas fa-check-circle"></i> {{ "noWarnings" | translate | safe }}</p>
+      <p class="nina-title">{{ "noWarnings" | translate | safe }}</p>
     </div>
   </div>
 {% endif %}

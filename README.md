@@ -12,12 +12,14 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 
 
 ## Installation
-1. Navigiere in das `MagicMirror/modules` Verzeichnis und führe folgendes Kommando aus:
-    `git clone https://github.com/jalibu/MMM-NINA.git`
-
-2. Wechsle nun in das MMM-NINA Modul Verzeichnis und führe folgendes Kommando aus:
+1. Navigiere in das `MagicMirror/modules` Verzeichnis und führe folgendes Kommando aus, um das Projekt auf deine Festplatte zu klonen:
+    ```bash
+    git clone https://github.com/jalibu/MMM-NINA.git
     ```
-    npm i
+
+2. Wechsle nun in das MMM-NINA Modul Verzeichnis und führe darin folgendes Kommando aus, um die Dependencies zu installieren:
+    ```bash
+    npm install
     ```
 3. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein.
     ### Beispiel

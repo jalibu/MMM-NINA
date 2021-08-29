@@ -21,3 +21,4 @@ declare module Module {
 }
 
 declare const config: any
+declare const moment: Function

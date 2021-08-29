@@ -14,7 +14,7 @@
 }
 
 .nina-wrapper .nina-alert.severity-Fine{
-  color: green;
+  color: #666;
 }
 
 .nina-wrapper .nina-alert.severity-Minor{
