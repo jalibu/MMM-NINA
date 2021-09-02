@@ -1,7 +1,7 @@
 # MMM-NINA - Ein NINA Warn-App Client für den Magic Mirror
 [![Known Vulnerabilities](https://snyk.io/test/github/jalibu/MMM-NINA/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jalibu/MMM-NINA?targetFile=package.json)  
 
-Dies ist eine simple Client Implementierung der NINA Warn-App für den [Magic Mirror](https://magicmirror.builders/).   
+Dies ist eine simple Client Implementierung der NINA Warn-App für die [MagicMirror²](https://magicmirror.builders/) Platform.   
 Feedback willkommen.
 
 ### Support
