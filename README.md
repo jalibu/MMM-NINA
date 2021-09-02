@@ -1,9 +1,11 @@
 # MMM-NINA - Ein NINA Warn-App Client für den Magic Mirror
+[![Known Vulnerabilities](https://snyk.io/test/github/jalibu/MMM-NINA/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jalibu/MMM-NINA?targetFile=package.json)  
+
 Dies ist eine simple Client Implementierung der NINA Warn-App für den [Magic Mirror](https://magicmirror.builders/).   
 Feedback willkommen.
 
 ### Support
-Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beitrag zu meinem nächsten Feierabend-Bier.
+Wenn du meine Arbeit schätzt, dann freue ich mich über ein Star-Rating oder einen bescheidenen Beitrag zu meinem nächsten Feierabend-Bier :-)
 
 <a href="https://www.buymeacoffee.com/jalibu" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Beer" style="height: 45px !important;width: 180px !important;" ></a>
 
