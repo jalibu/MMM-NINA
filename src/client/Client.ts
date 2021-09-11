@@ -1,4 +1,9 @@
-Module.register('MMM-NINA', {
+import { Config } from '../types/Config'
+
+// Global or injected variable declarations
+declare const moment: any
+
+Module.register<Config>('MMM-NINA', {
   defaults: {
     updateIntervalInSeconds: 120,
     maxAgeInHours: 6,
@@ -52,10 +57,11 @@ Module.register('MMM-NINA', {
   socketNotificationReceived(notificationIdentifier: string, payload: any) {
     if (notificationIdentifier === 'NINA_ALERTS_RESPONSE') {
       this.alerts = payload.map((alert) => {
-        alert.date = moment(new Date(alert.sent)).format("DD.MM.YYYY - HH:mm")
+        alert.date = moment(new Date(alert.sent)).format('DD.MM.YYYY - HH:mm')
         return alert
       })
       this.updateDom()
+      
       console.debug('Alerts', this.alerts)
     }
   }

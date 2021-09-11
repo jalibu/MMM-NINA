@@ -11,6 +11,7 @@
 .nina-alert {
   display: flex;
   justify-content: space-between;
+  color: red;
 }
 
 .nina-wrapper .nina-alert.severity-Fine{

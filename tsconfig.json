@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
     "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
     "sourceMap": false,
-    "noUnusedLocals": true
+    "target": "es6"
   }
 }

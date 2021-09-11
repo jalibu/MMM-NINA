@@ -1,12 +1,13 @@
 import * as NodeHelper from 'node_helper'
 import fetch from 'node-fetch'
+import { Config } from '../types/Config'
 
 module.exports = NodeHelper.create({
   start() {
     console.log(`${this.name} helper method started...`)
   },
 
-  transformNinaAlerts(alerts: any[], config) {
+  transformNinaAlerts(alerts: any[], config: Config) {
     const now = new Date().getTime()
 
     const filtered = alerts.filter((alert) => (now - Date.parse(alert.sent)) / (1000 * 60 * 60) <= config.maxAgeInHours)
@@ -17,13 +18,13 @@ module.exports = NodeHelper.create({
     return ags.substring(0, ags.length - 7) + '0000000'
   },
 
-  async socketNotificationReceived(notification, config) {
+  async socketNotificationReceived(notification, payload) {
     if (notification === 'GET_NINA_ALERTS') {
-      const response = await fetch(`https://warnung.bund.de/api31/dashboard/${this.harmonizeAgs(config.ags)}.json`)
+      const response = await fetch(`https://warnung.bund.de/api31/dashboard/${this.harmonizeAgs(payload.ags)}.json`)
       if (response.ok) {
         try {
           const alerts = await response.json()
-          this.sendSocketNotification('NINA_ALERTS_RESPONSE', this.transformNinaAlerts(alerts, config))
+          this.sendSocketNotification('NINA_ALERTS_RESPONSE', this.transformNinaAlerts(alerts, payload))
         } catch (err) {
           console.warn(`There was a problem requesting the NINA API`, err)
         }
