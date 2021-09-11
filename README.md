@@ -2,7 +2,7 @@
 
 [![dependencies Status](https://status.david-dm.org/gh/jalibu/MMM-NINA.svg)](https://david-dm.org/jalibu/MMM-NINA) [![Known Vulnerabilities](https://snyk.io/test/github/jalibu/MMM-NINA/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jalibu/MMM-NINA?targetFile=package.json)
 
-Simple Client Implementierung für die NINA Warn App für die [MagicMirror²](https://magicmirror.builders/) Plattform.
+EIne simple Client Implementierung der NINA Warn App API für die [MagicMirror²](https://magicmirror.builders/) Plattform.  
 Klicke hier für den [Forum Thread](https://forum.magicmirror.builders/topic/15429/mmm-nina)
 
 Feedback und Mithilfe willkommen.
@@ -31,16 +31,16 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
    ```
 3. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
    ```javascript
-       {
-           module: "MMM-NINA",
-           position: "top_right",
-           config: {
-               updateIntervalInSeconds: 120,
-               maxAgeInHours: 6,
-               showNoWarning: true,
-               ags: "110000000000",
-           }
-       }
+    {
+        module: "MMM-NINA",
+        position: "top_right",
+        config: {
+            updateIntervalInSeconds: 120,
+            maxAgeInHours: 6,
+            showNoWarning: true,
+            ags: "110000000000",
+        }
+    }
    ```
 
 ### Optionen
