@@ -1,4 +1,4 @@
-# MMM-NINA - Ein NINA Warn-App Client für den Magic Mirror
+# MMM-NINA
 
 [![dependencies Status](https://status.david-dm.org/gh/jalibu/MMM-NINA.svg)](https://david-dm.org/jalibu/MMM-NINA) [![Known Vulnerabilities](https://snyk.io/test/github/jalibu/MMM-NINA/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jalibu/MMM-NINA?targetFile=package.json)
 
