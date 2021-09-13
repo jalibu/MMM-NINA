@@ -17,6 +17,8 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 
 - Das Modul ruft periodisch die NINA API auf und ermittelt Warnmeldungen für deinen Kreis.
 
+![1630239555179-7ba390e3-ede1-4947-be9e-7129eb3bc876-image](https://user-images.githubusercontent.com/25933231/132957121-e0fccb58-2a28-4989-b325-968013018df7.png)
+
 ## Installation
 
 1. Navigiere in das `MagicMirror/modules` Verzeichnis und führe folgendes Kommando aus, um das Projekt auf deine Festplatte zu klonen:
