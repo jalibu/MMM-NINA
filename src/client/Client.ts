@@ -5,10 +5,12 @@ declare const moment: any
 
 Module.register<Config>('MMM-NINA', {
   defaults: {
-    updateIntervalInSeconds: 120,
-    maxAgeInHours: 6,
     ags: '110000000000',
-    showNoWarning: false
+    maxAgeInHours: 6,
+    maxWidth: null,
+    showIcon: true,
+    showNoWarning: false,
+    updateIntervalInSeconds: 120
   },
 
   getStyles() {

@@ -1,6 +1,8 @@
 export type Config = {
-  updateIntervalInSeconds: number
-  maxAgeInHours: number
   ags: string
+  maxAgeInHours: number
+  maxWidth?: string
   showNoWarning: boolean
+  showIcon: boolean
+  updateIntervalInSeconds: number
 }

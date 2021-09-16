@@ -31,7 +31,9 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
    ```bash
    npm install --only=production
    ```
-3. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
+3. Ermittle den amtlichen Gemeindeschlüssel deines Ortes aus [dieser Liste](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json).
+
+4. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
    ```javascript
     {
         module: "MMM-NINA",
@@ -47,12 +49,14 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 
 ### Optionen
 
-| Feld                    | Beschreibung                                                                                                                                                                                                                                                                                                                      | Default                   |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                                                                                                                                                                                                                                              | `120` (2 Minuten)         |
-| maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                                                                                                                                                                                                                                             | `6`                       |
-| showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                                                                                                                                                                                                                                      | false                     |
-| ags                     | (String) Amtlicher Gemeindeschlüssel (AGS) deines Ortes, welcher [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) ermittelt werden kann.<br>**Wichtig**: Unbedingt als String und mit führenden Nullen angeben! | `"110000000000"` (Berlin) |
+| Feld                    | Beschreibung                                                                                                      | Default                   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| ags                     | (String) Amtlicher Gemeindeschlüssel (AGS)<br>**Wichtig**: Unbedingt als String und mit führenden Nullen angeben! | `"110000000000"` (Berlin) |
+| maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                             | `6`                       |
+| maxWidth                | (String) CSS Style für maximale Breite des Moduls, z.B. `220px`. Weg lassen, zum Deaktivieren.                    | `undefined` (deaktiviert) |
+| showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                | true                      |
+| showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                      | false                     |
+| updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                              | `120` (2 Minuten)         |
 
 ## Contribution and Development
 

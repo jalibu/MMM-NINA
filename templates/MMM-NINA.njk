@@ -1,8 +1,8 @@
 {% if alerts.length > 0 %}
-  <div class="normal medium nina-wrapper">
+  <div class="normal medium nina-wrapper" {% if config.maxWidth %}style="max-width: {{ config.maxWidth }};" {% endif %}>
     {% for alert in alerts %}
       <div class="nina-alert severity-{{ alert.payload.data.severity }}">
-        <i class="nina-icon fas fa-exclamation-triangle"></i>
+        {% if config.showIcon %}<i class="nina-icon fas fa-exclamation-triangle"></i>{% endif %}
         <div>
           <p class="nina-title"> {{ alert.i18nTitle.de }}</p>
           <p class="nina-issue-date">{{ "issueTime" | translate | safe }} {{alert.date}}</p>
