@@ -39,10 +39,13 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
         module: "MMM-NINA",
         position: "top_right",
         config: {
-            updateIntervalInSeconds: 120,
-            maxAgeInHours: 6,
-            showNoWarning: true,
             ags: "110000000000",
+            maxAgeInHours: 6,
+            maxWidth: "200px",
+            showIcon: true,
+            showNoWarning: true,
+            updateIntervalInSeconds: 120,
+            
         }
     }
    ```
