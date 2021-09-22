@@ -11,11 +11,12 @@ module.exports = NodeHelper.create({
     const now = new Date().getTime()
 
     const filtered = alerts.filter((alert) => (now - Date.parse(alert.sent)) / (1000 * 60 * 60) <= config.maxAgeInHours)
+
     return filtered
   },
 
   harmonizeAgs(ags: string): string {
-    return ags.substring(0, ags.length - 7) + '0000000'
+    return `${ags.substring(0, ags.length - 7)}0000000`
   },
 
   async socketNotificationReceived(notification, payload) {

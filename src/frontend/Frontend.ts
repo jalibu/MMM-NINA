@@ -17,7 +17,7 @@ Module.register<Config>('MMM-NINA', {
     return ['font-awesome.css', 'MMM-NINA.css']
   },
 
-  getScripts: function () {
+  getScripts: () => {
     return ['moment.js']
   },
 
@@ -46,9 +46,8 @@ Module.register<Config>('MMM-NINA', {
   },
 
   scheduleUpdate() {
-    const self = this
     setInterval(() => {
-      self.loadData()
+      this.loadData()
     }, this.config.updateIntervalInSeconds * 1000)
   },
 
@@ -60,10 +59,11 @@ Module.register<Config>('MMM-NINA', {
     if (notificationIdentifier === 'NINA_ALERTS_RESPONSE') {
       this.alerts = payload.map((alert) => {
         alert.date = moment(new Date(alert.sent)).format('DD.MM.YYYY - HH:mm')
+
         return alert
       })
       this.updateDom()
-      
+
       console.debug('Alerts', this.alerts)
     }
   }
