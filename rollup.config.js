@@ -17,22 +17,26 @@ const bannerText = `/*! ********************************************************
   Licence: ${pkg.license}
 
   This file is auto-generated. Do not edit.
-***************************************************************************** */
+***************************************************************************** *s/
 
 `
 export default [
   {
     input: './src/frontend/Frontend.ts',
+    external: ['logger'],
     plugins: [typescript({ module: 'ESNext' }), nodeResolve(), commonjs(), terser(), banner2(() => bannerText)],
     output: {
       file: './' + pkg.main,
-      format: 'iife'
+      format: 'iife',
+      globals: {
+        logger: 'Log'
+      }
     }
   },
   {
     input: './src/backend/Backend.ts',
-    external: ['node_helper', 'node-fetch'],
-    plugins: [typescript({ module: 'ESNext' }), terser(), banner2(() => bannerText)],
+    external: ['node_helper', 'logger', 'node-fetch'],
+    plugins: [typescript({ module: 'ESNext' }), nodeResolve(), terser(), banner2(() => bannerText)],
     output: {
       file: './node_helper.js',
       format: 'cjs'
