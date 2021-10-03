@@ -1,6 +1,9 @@
+import * as Log from 'logger'
 import { Config } from '../types/Config'
+import { Alert } from '../types/Alert'
 
 // Global or injected variable declarations
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const moment: any
 
 Module.register<Config>('MMM-NINA', {
@@ -52,19 +55,21 @@ Module.register<Config>('MMM-NINA', {
   },
 
   loadData() {
-    this.sendSocketNotification('GET_NINA_ALERTS', this.config)
+    this.sendSocketNotification('NINA_ALERTS_REQUEST', this.config)
   },
 
-  socketNotificationReceived(notificationIdentifier: string, payload: any) {
+  socketNotificationReceived(notificationIdentifier: string, payload: unknown) {
     if (notificationIdentifier === 'NINA_ALERTS_RESPONSE') {
-      this.alerts = payload.map((alert) => {
+      const alerts = payload as Alert[]
+      this.alerts = alerts.map((alert: Alert) => {
+        // eslint-disable-next-line no-param-reassign
         alert.date = moment(new Date(alert.sent)).format('DD.MM.YYYY - HH:mm')
 
         return alert
       })
       this.updateDom()
 
-      console.debug('Alerts', this.alerts)
+      Log.log('Alerts', this.alerts)
     }
   }
 })
