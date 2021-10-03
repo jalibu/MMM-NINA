@@ -1,6 +1,6 @@
 /*! *****************************************************************************
   mmm-nina
-  Version 1.1.1
+  Version 1.2.0
 
   Simple Client Implementierung für die NINA Warn App für die MagicMirror² Plattform.
   Please submit bugs at https://github.com/jalibu/MMM-NINA/issues
@@ -9,7 +9,7 @@
   Licence: MIT
 
   This file is auto-generated. Do not edit.
-***************************************************************************** *s/
+***************************************************************************** */
 
 "use strict";var e=require("node_helper"),t=require("logger"),n=require("node-fetch");function r(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}function i(e){if(e&&e.__esModule)return e;var t=Object.create(null);return e&&Object.keys(e).forEach((function(n){if("default"!==n){var r=Object.getOwnPropertyDescriptor(e,n);Object.defineProperty(t,n,r.get?r:{enumerable:!0,get:function(){return e[n]}})}})),t.default=e,Object.freeze(t)}var a=i(e),o=i(t),s=r(n);
 /*! *****************************************************************************
