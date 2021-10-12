@@ -10,10 +10,6 @@ module.exports = NodeHelper.create({
     Log.log(`${this.name} helper method started...`)
   },
 
-  bla() {
-    return 5
-  },
-
   async socketNotificationReceived(notification: string, payload: unknown) {
     if (notification === 'NINA_ALERTS_REQUEST') {
       const config = payload as Config
