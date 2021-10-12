@@ -1,6 +1,6 @@
 # MMM-NINA
 
-[![version](https://img.shields.io/github/package-json/v/jalibu/MMM-NINA)](https://github.com/jalibu/MMM-NINA/releases) [![dependencies Status](https://status.david-dm.org/gh/jalibu/MMM-NINA.svg)](https://david-dm.org/jalibu/MMM-NINA) [![Known Vulnerabilities](https://snyk.io/test/github/jalibu/MMM-NINA/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jalibu/MMM-NINA?targetFile=package.json)
+[![version](https://img.shields.io/github/package-json/v/jalibu/MMM-NINA)](https://github.com/jalibu/MMM-NINA/releases) [![Known Vulnerabilities](https://snyk.io/test/github/jalibu/MMM-NINA/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jalibu/MMM-NINA?targetFile=package.json)
 
 EIne simple Client Implementierung der NINA Warn App API für die [MagicMirror²](https://magicmirror.builders/) Plattform.  
 Klicke hier für den [Forum Thread](https://forum.magicmirror.builders/topic/15429/mmm-nina)
