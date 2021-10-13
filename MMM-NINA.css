@@ -30,3 +30,24 @@
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
+.nina-theme-top .nina-alert {
+  justify-content: flex-start;
+  text-align: left;
+  padding: 20px;
+  background: red;
+  color: white;
+}
+
+.nina-theme-top .nina-alert.severity-Fine {
+  color: #666;
+}
+
+.nina-theme-top .nina-alert.severity-Minor {
+  background: #f8c0ac;
+  color: #8b0000;
+}
+.nina-theme-top .nina-title  {
+  font-size: 1.2em;
+  font-weight: bold;
+}

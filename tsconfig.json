@@ -6,6 +6,8 @@
     "noImplicitThis": true,
     "sourceMap": false,
     "target": "es6",
-    "lib": ["DOM", "ESNext"]
+    "lib": ["DOM", "ESNext"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "mmm-nina",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Simple Client Implementierung für die NINA Warn App für die MagicMirror² Plattform.",
   "main": "MMM-NINA.js",
   "repository": {
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-typescript": "^8.2.5",
     "@types/magicmirror-module": "^2.16.0",

@@ -34,32 +34,41 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 3. Ermittle den amtlichen Gemeindeschlüssel deines Ortes aus [dieser Liste](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json).
 
 4. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
+
    ```javascript
     {
         module: "MMM-NINA",
         position: "top_right",
         config: {
-            ags: "110000000000",
+            ags: ["110000000000"], // Liste der Gemeinden, die abgefragt werden sollen
             maxAgeInHours: 6,
             maxWidth: "200px",
+            mergeAlerts: true,
             showIcon: true,
+            showDate: true,
+            showCity: true,
             showNoWarning: true,
+            theme: "top", // Erlaubte Werte: top, side
             updateIntervalInSeconds: 120,
-            
+
         }
     }
    ```
 
 ### Optionen
 
-| Feld                    | Beschreibung                                                                                                      | Default                   |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| ags                     | (String) Amtlicher Gemeindeschlüssel (AGS)<br>**Wichtig**: Unbedingt als String und mit führenden Nullen angeben! | `"110000000000"` (Berlin) |
-| maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                             | `6`                       |
-| maxWidth                | (String) CSS Style für maximale Breite des Moduls, z.B. `220px`. Weg lassen, zum Deaktivieren.                    | `undefined` (deaktiviert) |
-| showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                | true                      |
-| showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                      | false                     |
-| updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                              | `120` (2 Minuten)         |
+| Feld                    | Beschreibung                                                                                                                                        | Default                   |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| ags                     | (Liste von Strings) Amtliche(r) Gemeindeschlüssel (AGS)<br>**Wichtig**: Werte unbedingt als String mit führenden Nullen angeben! | `["110000000000"]` (Berlin) |
+| maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                                                               | `6`                       |
+| maxWidth                | (String) CSS Style für maximale Breite des Moduls, z.B. `220px`. Weg lassen, zum Deaktivieren.                                                      | `undefined` (deaktiviert) |
+| mergeAlerts             | (Boolean) Sofern Alerts für mehrere Gemeinden abgefragt werden, wird versucht gleiche Meldungen zusammenzufassen                                    | `true`                    |
+| showCity                | (Boolean) Soll der Name der Gemeinde angezeigt werden?                                                                                              | `true`                    |
+| showDate                | (Boolean) Soll das Datum der Meldung angezeigt werden?                                                                                              | `true`                    |
+| showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                                                  | `true`                    |
+| showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                                                        | `false`                   |
+| updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                                                                | `120` (2 Minuten)         |
+| theme                   | (String) Welches Theme soll angewendet werden?<br> Verfügbare Themes: `top` und `side`                                                              | `side`                     |
 
 ## Contribution and Development
 
