@@ -16,8 +16,10 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 ## Features
 
 - Das Modul ruft periodisch die NINA API auf und ermittelt Warnmeldungen für deinen Kreis.
-
-![1630239555179-7ba390e3-ede1-4947-be9e-7129eb3bc876-image](https://user-images.githubusercontent.com/25933231/132957121-e0fccb58-2a28-4989-b325-968013018df7.png)
+   <img width="540" alt="Screenshot2" src="https://user-images.githubusercontent.com/25933231/132957121-e0fccb58-2a28-4989-b325-968013018df7.png">
+- Es können Alarme mehrerer Städte/Gemeinden gleichzeitig abgerufen werden. Identische Warnungen können dabei zusammengefasst werden.  
+   <img width="540" alt="Screenshot2" src="https://user-images.githubusercontent.com/25933231/137167087-6db8464b-1202-4f1e-a34b-9d448b64f109.png">
+- 2 unterschiedliche Themes
 
 ## Installation
 
