@@ -1,6 +1,17 @@
 .nina-wrapper {
   font-size: 1rem;
   line-height: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.right .nina-wrapper,
+.center .nina-wrapper {
+  align-items: stretch;
+}
+
+.left .nina-wrapper {
+  align-items: start;
 }
 
 .nina-icon {
@@ -10,15 +21,16 @@
 
 .nina-alert {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   color: red;
 }
 
-.nina-wrapper .nina-alert.severity-Fine{
+.nina-alert.severity-Fine {
   color: #666;
 }
 
-.nina-wrapper .nina-alert.severity-Minor{
+.nina-alert.severity-Minor {
   color: yellow;
 }
 
@@ -47,7 +59,7 @@
   background: #f8c0ac;
   color: #8b0000;
 }
-.nina-theme-top .nina-title  {
+.nina-theme-top .nina-title {
   font-size: 1.2em;
   font-weight: bold;
 }
