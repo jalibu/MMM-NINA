@@ -3,15 +3,12 @@
   line-height: 1.2rem;
   display: flex;
   flex-direction: column;
+  row-gap: 0.5em;
 }
 
 .right .nina-wrapper,
 .center .nina-wrapper {
   align-items: stretch;
-}
-
-.left .nina-wrapper {
-  align-items: start;
 }
 
 .nina-icon {
@@ -24,6 +21,10 @@
   align-items: center;
   justify-content: space-between;
   color: red;
+}
+
+.nina-alert-data {
+  flex-grow: 2;
 }
 
 .nina-alert.severity-Fine {

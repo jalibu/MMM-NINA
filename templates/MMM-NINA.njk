@@ -3,7 +3,7 @@
     {% for alert in alerts %}
       <div class="nina-alert severity-{{ alert.payload.data.severity }}">
         {% if config.showIcon %}<i class="nina-icon fas fa-exclamation-triangle"></i>{% endif %}
-        <div>
+        <div class="nina-alert-data">
           <p class="nina-title"> {{ alert.i18nTitle.de }}</p>
           {% if config.showCity %}
             <p class="nina-city">{{alert.cityName}}</p>
