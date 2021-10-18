@@ -18,7 +18,9 @@
 {% elif config.showNoWarning %}
   <div class="normal medium nina-wrapper">
     <div class="nina-alert severity-Fine">
-      <p class="nina-title">{{ "noWarnings" | translate | safe }}</p>
+      <div class="nina-alert-data">
+        <p class="nina-title">{{ "noWarnings" | translate | safe }}</p>
+      </div>
     </div>
   </div>
 {% endif %}
