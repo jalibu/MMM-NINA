@@ -9,4 +9,6 @@ export type Config = {
   showCity: boolean
   theme: string
   updateIntervalInSeconds: number
+  excludeProviders: string[]
+  downgradeLhpServerity: boolean
 }

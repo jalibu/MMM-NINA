@@ -12,7 +12,20 @@ export default class Utils {
       Log.warn(`AGS '${alertAgs}' konnte keiner Gemeinde zugeordnet werden.`)
     }
 
-    const filtered = alerts.filter((alert) => (now - Date.parse(alert.sent)) / (1000 * 60 * 60) <= config.maxAgeInHours)
+    const filtered = alerts.filter((alert) => {
+      if (alert?.payload?.data?.provider === 'LHP') {
+        alert.payload.data.severity = 'Minor'
+      }
+
+      if (alert.payload.data.msgType === 'Cancel') {
+        alert.payload.data.severity = 'Fine'
+      }
+
+      return (
+        (now - Date.parse(alert.sent)) / (1000 * 60 * 60) <= config.maxAgeInHours &&
+        !config.excludeProviders.includes(alert?.payload?.data?.provider)
+      )
+    })
 
     return filtered.map((alert) => {
       // eslint-disable-next-line no-param-reassign

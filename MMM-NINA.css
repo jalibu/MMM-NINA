@@ -53,13 +53,19 @@
 }
 
 .nina-theme-top .nina-alert.severity-Fine {
-  color: #666;
+  background: #009900;
+  color: #222;
 }
 
 .nina-theme-top .nina-alert.severity-Minor {
+  background: #ffcc66;
+  color: #8b0000;
+}
+.nina-theme-top .nina-alert.severity-Moderate {
   background: #f8c0ac;
   color: #8b0000;
 }
+
 .nina-theme-top .nina-title {
   font-size: 1.2em;
   font-weight: bold;

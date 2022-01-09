@@ -9,6 +9,7 @@ declare const moment: any
 Module.register<Config>('MMM-NINA', {
   defaults: {
     ags: '110000000000',
+    excludeProviders: [],
     mergeAlerts: true,
     maxAgeInHours: 6,
     maxWidth: null,
@@ -17,7 +18,8 @@ Module.register<Config>('MMM-NINA', {
     showCity: true,
     showDate: true,
     updateIntervalInSeconds: 120,
-    theme: 'side'
+    theme: 'side',
+    downgradeLhpServerity: false
   },
 
   getStyles() {
