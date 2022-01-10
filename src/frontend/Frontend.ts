@@ -19,7 +19,8 @@ Module.register<Config>('MMM-NINA', {
     showDate: true,
     updateIntervalInSeconds: 120,
     theme: 'side',
-    downgradeLhpServerity: false
+    downgradeLhpSeverity: false,
+    downgradeCancelSeverity: true
   },
 
   getStyles() {

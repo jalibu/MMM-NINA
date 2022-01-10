@@ -13,12 +13,12 @@ export default class Utils {
     }
 
     const filtered = alerts.filter((alert) => {
-      if (alert?.payload?.data?.provider === 'LHP') {
-        alert.payload.data.severity = 'Minor'
+      if (alert?.payload?.data?.provider?.toLocaleLowerCase() === 'lhp' && config.downgradeLhpSeverity) {
+        alert.payload.data.severity = 'Moderate'
       }
 
-      if (alert.payload.data.msgType === 'Cancel') {
-        alert.payload.data.severity = 'Fine'
+      if (alert.payload.data.msgType === 'Cancel' && config.downgradeCancelSeverity) {
+        alert.payload.data.severity = 'Cancel'
       }
 
       return (

@@ -31,6 +31,10 @@
   color: #666;
 }
 
+.nina-alert.severity-Cancel {
+  color: #009900
+}
+
 .nina-alert.severity-Minor {
   color: yellow;
 }
@@ -52,9 +56,9 @@
   color: white;
 }
 
-.nina-theme-top .nina-alert.severity-Fine {
+.nina-theme-top .nina-alert.severity-Cancel {
   background: #009900;
-  color: #222;
+  color: #111;
 }
 
 .nina-theme-top .nina-alert.severity-Minor {

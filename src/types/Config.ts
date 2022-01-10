@@ -10,5 +10,6 @@ export type Config = {
   theme: string
   updateIntervalInSeconds: number
   excludeProviders: string[]
-  downgradeLhpServerity: boolean
+  downgradeLhpSeverity: boolean
+  downgradeCancelSeverity: boolean
 }
