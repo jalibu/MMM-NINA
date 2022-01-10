@@ -43,7 +43,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
         position: "top_right",
         config: {
             ags: ["110000000000"], // Liste der Gemeinden, die abgefragt werden sollen
-            downgradeLhpServerity: false,
+            downgradeLhpSeverity: false,
             downgradeCancelSeverity: true,
             excludeProviders: [], // Mögliche Werte ["MOWAS", "DWD", "BIWAPP", "LHP"]
             maxAgeInHours: 6,
@@ -65,7 +65,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 | Feld                    | Beschreibung                                                                                                                            | Default                     |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
 | ags                     | (Liste von Strings) Amtliche(r) Gemeindeschlüssel (AGS)<br>**Wichtig**: Werte unbedingt als String mit führenden Nullen angeben!        | `["110000000000"]` (Berlin) |
-| downgradeLhpServerity   | (Boolean) Reduziert die Severity von Meldungen des Länderübergreifende Hochwasser Portals auf "Minor"                                   | `false`                     |
+| downgradeLhpSeverity   | (Boolean) Reduziert die Severity von Meldungen des Länderübergreifende Hochwasser Portals auf "Minor"                                   | `false`                     |
 | downgradeCancelSeverity | (Boolean) Aufgehobene Warnungen sollen grün dargestellt werden und nicht in ihrer ursprünglichen Severity.                              | `true`                      |
 | excludeProviders        | (Liste von Strings) Liste von Providern, dessen Meldungen nicht angezeigt werden sollen. Provider sind: "MOWAS", "DWD", "BIWAPP", "LHP" | `[]` (kein Filter)          |
 | maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                                                   | `6`                         |
