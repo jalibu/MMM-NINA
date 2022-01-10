@@ -8,6 +8,9 @@ export type Alert = {
       severity: string
       provider: string
       msgType: string
+      transKeys?: {
+        event: string
+      }
     }
   }
 }
