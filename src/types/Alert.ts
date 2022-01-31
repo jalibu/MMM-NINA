@@ -13,4 +13,9 @@ export type Alert = {
       }
     }
   }
+  details?: AlertDetails
+}
+
+export type AlertDetails = {
+  info: { category: string; event: string; senderName: string; description: string }[]
 }

@@ -45,6 +45,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
             ags: ["110000000000"], // Liste der Gemeinden, die abgefragt werden sollen
             downgradeLhpServerity: false,
             downgradeCancelSeverity: true,
+            hideCancelledWarnings: false,
             excludeProviders: [], // Mögliche Werte ["MOWAS", "DWD", "BIWAPP", "LHP"]
             maxAgeInHours: 6,
             maxWidth: "200px",
@@ -68,6 +69,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 | downgradeLhpServerity   | (Boolean) Reduziert die Severity von Meldungen des Länderübergreifende Hochwasser Portals auf "Minor"                                   | `false`                     |
 | downgradeCancelSeverity | (Boolean) Aufgehobene Warnungen sollen grün dargestellt werden und nicht in ihrer ursprünglichen Severity.                              | `true`                      |
 | excludeProviders        | (Liste von Strings) Liste von Providern, dessen Meldungen nicht angezeigt werden sollen. Provider sind: "MOWAS", "DWD", "BIWAPP", "LHP" | `[]` (kein Filter)          |
+| hideCancelledWarnings   | (Boolean) Verstecke aufgehobene Warnungen                                                                                               | `false`                     |
 | maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                                                   | `6`                         |
 | maxWidth                | (String) CSS Style für maximale Breite des Moduls, z.B. `220px`. Weg lassen, zum Deaktivieren.                                          | `undefined` (deaktiviert)   |
 | mergeAlerts             | (Boolean) Sofern Alerts für mehrere Gemeinden abgefragt werden, wird versucht gleiche Meldungen zusammenzufassen                        | `true`                      |

@@ -13,6 +13,10 @@ export default class Utils {
     }
 
     const filtered = alerts.filter((alert) => {
+      if (config.hideCancelledWarnings && alert.payload.data.severity === 'Cancel') {
+        return false
+      }
+
       if (alert?.payload?.data?.provider?.toLocaleLowerCase() === 'lhp' && config.downgradeLhpSeverity) {
         alert.payload.data.severity = 'Moderate'
       }
