@@ -35,7 +35,7 @@ export default class Utils {
       }
 
       // eslint-disable-next-line no-param-reassign
-      alert.cityName = city[1] || ''
+      alert.cityNames = [city[1]] || []
 
       return alert
     })
@@ -49,7 +49,7 @@ export default class Utils {
       if (config.mergeAlertsById) {
         if (knownIds.includes(alert.id)) {
           const existing = alerts.find((existingAlert) => existingAlert.id === alert.id)
-          existing.cityName += ` | ${alert.cityName}`
+          existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
 
           return false
         }
@@ -58,6 +58,10 @@ export default class Utils {
 
       if (config.mergeAlertsByTitle) {
         if (knownTitles.includes(alert.i18nTitle.de)) {
+          const existing = alerts.find((existingAlert) => existingAlert.i18nTitle.de === alert.i18nTitle.de)
+
+          existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
+
           return false
         }
         knownTitles.push(alert.i18nTitle.de)

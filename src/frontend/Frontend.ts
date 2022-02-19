@@ -52,7 +52,7 @@ Module.register<Config>('MMM-NINA', {
   },
 
   start() {
-    if (this.config.mergeAlerts) {
+    if ('mergeAlerts' in this.config) {
       Log.warn(
         'Die MMM-NINA Konfigurations-Einstellung "mergeAlerts" ist veraltet. Bitte durch "mergeAlertsById" ersetzen.'
       )

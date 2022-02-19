@@ -12,7 +12,7 @@
         <div class="nina-alert-data">
           <p class="nina-title"> {{ alert.i18nTitle.de }}</p>
           {% if config.showCity %}
-            <p class="nina-city">{{alert.cityName}}</p>
+            <p class="nina-city">{{alert.cityNames.join(" | ") }}</p>
           {% endif %}
           {% if config.showDate %}
             <p class="nina-issue-date">{{ "issueTime" | translate | safe }} {{alert.date}}</p>
