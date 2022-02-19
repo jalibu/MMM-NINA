@@ -13,12 +13,8 @@ export default class Utils {
     }
 
     const filtered = alerts.filter((alert) => {
-      if (alert?.payload?.data?.provider?.toLocaleLowerCase() === 'lhp' && config.downgradeLhpSeverity) {
-        alert.payload.data.severity = 'Moderate'
-      }
-
-      if (alert.payload.data.msgType === 'Cancel' && config.downgradeCancelSeverity) {
-        alert.payload.data.severity = 'Cancel'
+      if (config.hideCancelledWarnings && alert.payload.data.severity === 'Cancel') {
+        return false
       }
 
       return (
@@ -28,6 +24,16 @@ export default class Utils {
     })
 
     return filtered.map((alert) => {
+      if (alert?.payload?.data?.provider?.toLocaleLowerCase() === 'lhp' && config.downgradeLhpSeverity) {
+        // eslint-disable-next-line no-param-reassign
+        alert.payload.data.severity = 'Moderate'
+      }
+
+      if (alert.payload.data.msgType === 'Cancel' && config.downgradeCancelSeverity) {
+        // eslint-disable-next-line no-param-reassign
+        alert.payload.data.severity = 'Cancel'
+      }
+
       // eslint-disable-next-line no-param-reassign
       alert.cityName = city[1] || ''
 
@@ -40,7 +46,7 @@ export default class Utils {
     const knownTitles: string[] = []
 
     return alerts.filter((alert) => {
-      if (config.mergeAlerts) {
+      if (config.mergeAlertsById) {
         if (knownIds.includes(alert.id)) {
           const existing = alerts.find((existingAlert) => existingAlert.id === alert.id)
           existing.cityName += ` | ${alert.cityName}`
@@ -50,7 +56,7 @@ export default class Utils {
         knownIds.push(alert.id)
       }
 
-      if (config.mergeAlertTitels) {
+      if (config.mergeAlertsByTitle) {
         if (knownTitles.includes(alert.i18nTitle.de)) {
           return false
         }
