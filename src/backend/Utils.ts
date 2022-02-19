@@ -39,24 +39,26 @@ export default class Utils {
     const knownIds: string[] = []
     const knownTitles: string[] = []
 
-    return config.mergeAlerts
-      ? alerts.filter((alert) => {
-          if (knownIds.includes(alert.id)) {
-            const existing = alerts.find((existingAlert) => existingAlert.id === alert.id)
-            existing.cityName += ` | ${alert.cityName}`
+    return alerts.filter((alert) => {
+      if (config.mergeAlerts) {
+        if (knownIds.includes(alert.id)) {
+          const existing = alerts.find((existingAlert) => existingAlert.id === alert.id)
+          existing.cityName += ` | ${alert.cityName}`
 
-            return false
-          }
-          knownIds.push(alert.id)
+          return false
+        }
+        knownIds.push(alert.id)
+      }
 
-          if (knownTitles.includes(alert.i18nTitle.de)) {
-            return false
-          }
-          knownTitles.push(alert.i18nTitle.de)
+      if (config.mergeAlertTitels) {
+        if (knownTitles.includes(alert.i18nTitle.de)) {
+          return false
+        }
+        knownTitles.push(alert.i18nTitle.de)
+      }
 
-          return true
-        })
-      : alerts
+      return true
+    })
   }
 
   static harmonizeAgs(ags: string): string {

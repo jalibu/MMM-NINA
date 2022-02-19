@@ -71,6 +71,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 | maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                                                   | `6`                         |
 | maxWidth                | (String) CSS Style für maximale Breite des Moduls, z.B. `220px`. Weg lassen, zum Deaktivieren.                                          | `undefined` (deaktiviert)   |
 | mergeAlerts             | (Boolean) Sofern Alerts für mehrere Gemeinden abgefragt werden, wird versucht gleiche Meldungen zusammenzufassen                        | `true`                      |
+| mergeAlertTitels        | (Boolean) Sofern Alerts mit gleichem Titel vorliegen, wird versucht die Meldungen zusammenzufassen                                      | `false`                     |
 | showCity                | (Boolean) Soll der Name der Gemeinde angezeigt werden?                                                                                  | `true`                      |
 | showDate                | (Boolean) Soll das Datum der Meldung angezeigt werden?                                                                                  | `true`                      |
 | showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                                      | `true`                      |
