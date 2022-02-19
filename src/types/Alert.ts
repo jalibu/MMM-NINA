@@ -14,11 +14,11 @@ export type Alert = {
     }
   }
   details?: AlertDetails
+  i18nTitle: {
+    de?: string
+  }
 }
 
 export type AlertDetails = {
   info: { category: string; event: string; senderName: string; description: string }[]
-  i18nTitle: {
-    de?: string
-  }
 }

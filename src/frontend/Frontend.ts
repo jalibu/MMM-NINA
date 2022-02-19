@@ -9,20 +9,20 @@ declare const moment: any
 Module.register<Config>('MMM-NINA', {
   defaults: {
     ags: '110000000000',
+    downgradeCancelSeverity: true,
+    downgradeLhpSeverity: false,
     excludeProviders: [],
-    mergeAlerts: true,    
-    mergeAlertTitels: false,
+    hideCancelledWarnings: false,
     maxAgeInHours: 6,
     maxWidth: null,
-    showIcon: true,
-    showNoWarning: false,
+    mergeAlertsById: true,
+    mergeAlertsByTitle: true,
     showCity: true,
     showDate: true,
-    updateIntervalInSeconds: 120,
+    showNoWarning: false,
+    showIcon: true,
     theme: 'side',
-    downgradeLhpSeverity: false,
-    downgradeCancelSeverity: true,
-    hideCancelledWarnings: false
+    updateIntervalInSeconds: 120
   },
 
   getStyles() {
@@ -52,6 +52,12 @@ Module.register<Config>('MMM-NINA', {
   },
 
   start() {
+    if (this.config.mergeAlerts) {
+      Log.warn(
+        'Die MMM-NINA Konfigurations-Einstellung "mergeAlerts" ist veraltet. Bitte durch "mergeAlertsById" ersetzen.'
+      )
+      this.config.mergeAlertsById = this.config.mergeAlerts
+    }
     this.loadData()
     this.scheduleUpdate()
     this.updateDom()
