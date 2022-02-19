@@ -1,6 +1,7 @@
 export type Config = {
   ags: string | string[]
   mergeAlerts: boolean
+  mergeAlertTitels: boolean
   maxAgeInHours: number
   maxWidth?: string
   showNoWarning: boolean
