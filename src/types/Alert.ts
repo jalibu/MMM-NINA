@@ -18,4 +18,7 @@ export type Alert = {
 
 export type AlertDetails = {
   info: { category: string; event: string; senderName: string; description: string }[]
+  i18nTitle: {
+    de?: string
+  }
 }

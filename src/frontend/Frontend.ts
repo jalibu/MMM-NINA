@@ -10,7 +10,8 @@ Module.register<Config>('MMM-NINA', {
   defaults: {
     ags: '110000000000',
     excludeProviders: [],
-    mergeAlerts: true,
+    mergeAlerts: true,    
+    mergeAlertTitels: false,
     maxAgeInHours: 6,
     maxWidth: null,
     showIcon: true,
