@@ -13,4 +13,7 @@ export type Alert = {
       }
     }
   }
+  i18nTitle: {
+    de?: string
+  }
 }

@@ -37,6 +37,7 @@ export default class Utils {
 
   static removeDuplicates(alerts: Alert[], config: Config): Alert[] {
     const knownIds: string[] = []
+    const knownTitles: string[] = []
 
     return config.mergeAlerts
       ? alerts.filter((alert) => {
@@ -47,6 +48,11 @@ export default class Utils {
             return false
           }
           knownIds.push(alert.id)
+
+          if (knownTitles.includes(alert.i18nTitle.de)) {
+            return false
+          }
+          knownTitles.push(alert.i18nTitle.de)
 
           return true
         })
