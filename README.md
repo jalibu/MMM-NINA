@@ -54,7 +54,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
             showDate: true,
             showCity: true,
             showNoWarning: true,
-            theme: "top", // Erlaubte Werte: top, side
+            theme: "top", // Erlaubte Werte: top, top-floating, side
             updateIntervalInSeconds: 120,
 
         }
@@ -80,7 +80,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 | showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                                      | `true`                      |
 | showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                                            | `false`                     |
 | updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                                                    | `120` (2 Minuten)           |
-| theme                   | (String) Welches Theme soll angewendet werden?<br> Verfügbare Themes: `top` und `side`                                                  | `side`                      |
+| theme                   | (String) Welches Theme soll angewendet werden?<br> Verfügbare Themes: `top`, `top-floating` und `side`                                                  | `side`                      |
 
 ## Contribution and Development
 
