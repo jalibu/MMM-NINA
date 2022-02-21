@@ -49,7 +49,8 @@
   margin-block-end: 0;
 }
 
-.nina-theme-top .nina-alert {
+.nina-theme-top .nina-alert,
+.nina-theme-top-floating .nina-alert {
   justify-content: flex-start;
   text-align: left;
   padding: 20px;
@@ -57,21 +58,25 @@
   color: white;
 }
 
-.nina-theme-top .nina-alert.severity-Cancel {
+.nina-theme-top .nina-alert.severity-Cancel,
+.nina-theme-top-floating .nina-alert.severity-Cancel {
   background: #009900;
   color: #111;
 }
 
-.nina-theme-top .nina-alert.severity-Minor {
+.nina-theme-top .nina-alert.severity-Minor,
+.nina-theme-top-floating .nina-alert.severity-Minor {
   background: #ffcc66;
   color: #8b0000;
 }
-.nina-theme-top .nina-alert.severity-Moderate {
+.nina-theme-top .nina-alert.severity-Moderate,
+.nina-theme-top-floating .nina-alert.severity-Moderate {
   background: #f8c0ac;
   color: #8b0000;
 }
 
-.nina-theme-top .nina-title {
+.nina-theme-top .nina-title,
+.nina-theme-top-floating .nina-title {
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -82,31 +87,4 @@
   transform: translate(-50%, 0);
   z-index: 10;
   opacity: 0.7;
-}
-
-.nina-theme-top-floating .nina-alert {
-  justify-content: flex-start;
-  text-align: left;
-  padding: 20px;
-  background: red;
-  color: white;
-}
-
-.nina-theme-top-floating .nina-alert.severity-Cancel {
-  background: #009900;
-  color: #111;
-}
-
-.nina-theme-top-floating .nina-alert.severity-Minor {
-  background: #ffcc66;
-  color: #8b0000;
-}
-.nina-theme-top-floating .nina-alert.severity-Moderate {
-  background: #f8c0ac;
-  color: #8b0000;
-}
-
-.nina-theme-top-floating .nina-title {
-  font-size: 1.2em;
-  font-weight: bold;
 }
