@@ -41,6 +41,17 @@ export default class Utils {
     })
   }
 
+  static orderBySeverity(alerts: Alert[], config: Config): Alert[] {
+    if (config.orderBySeverity) {
+      const severityOrder = ['Severe', 'Moderate', 'Minor', 'Cancel']
+      return alerts.sort(
+        (a, b) => severityOrder.indexOf(a.payload.data.severity) - severityOrder.indexOf(b.payload.data.severity)
+      )
+    }
+
+    return alerts
+  }
+
   static removeDuplicates(alerts: Alert[], config: Config): Alert[] {
     const knownIds: string[] = []
     const knownTitles: string[] = []

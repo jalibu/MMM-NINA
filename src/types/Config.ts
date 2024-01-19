@@ -9,6 +9,7 @@ export type Config = {
   mergeAlerts?: boolean
   mergeAlertsById: boolean
   mergeAlertsByTitle: boolean
+  orderBySeverity: boolean
   showCity: boolean
   showDate: boolean
   showIcon: boolean

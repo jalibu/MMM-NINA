@@ -17,6 +17,7 @@ Module.register<Config>('MMM-NINA', {
     maxWidth: null,
     mergeAlertsById: true,
     mergeAlertsByTitle: true,
+    orderBySeverity: true,
     showCity: true,
     showDate: true,
     showNoWarning: false,

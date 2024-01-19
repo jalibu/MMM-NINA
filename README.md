@@ -50,6 +50,7 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
             maxWidth: "200px",
             mergeAlertsById: true,
             mergeAlertsByTitle: true,
+            orderBySeverity: true,
             showIcon: true,
             showDate: true,
             showCity: true,
@@ -75,12 +76,13 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 | mergeAlerts             | _Veraltet_. Bitte stattdessen **mergeAlertsById** verwenden.                                                                            | `-`                         |
 | mergeAlertsById         | (Boolean) Sofern Alerts für mehrere Gemeinden abgefragt werden, wird versucht gleiche Meldungen zusammenzufassen                        | `true`                      |
 | mergeAlertsByTitle      | (Boolean) Sofern Alerts mit gleichem Titel vorliegen, wird versucht die Meldungen zusammenzufassen                                      | `true`                      |
+| orderBySeverity         | (Boolean) Sollen Warnmeldungen absteigend nach ihrem Schweregrad angezeigt werden?                                                      | `true`                      |
 | showCity                | (Boolean) Soll der Name der Gemeinde angezeigt werden?                                                                                  | `true`                      |
 | showDate                | (Boolean) Soll das Datum der Meldung angezeigt werden?                                                                                  | `true`                      |
 | showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                                      | `true`                      |
 | showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                                            | `false`                     |
 | updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                                                    | `120` (2 Minuten)           |
-| theme                   | (String) Welches Theme soll angewendet werden?<br> Verfügbare Themes: `top`, `top-floating` und `side`                                                  | `side`                      |
+| theme                   | (String) Welches Theme soll angewendet werden?<br> Verfügbare Themes: `top`, `top-floating` und `side`                                  | `side`                      |
 
 ## Contribution and Development
 
