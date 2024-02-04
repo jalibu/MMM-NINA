@@ -7,6 +7,13 @@
     "type": "git",
     "url": "git+https://github.com/jalibu/MMM-NINA.git"
   },
+  "keywords": [
+    "MagicMirror",
+    "NINA",
+    "warning",
+    "notification",
+    "crisis"
+  ],
   "author": "Jan.Litzenburger@gmail.com",
   "license": "MIT",
   "bugs": {
