@@ -36,7 +36,7 @@ export default [
   },
   {
     input: './src/backend/Backend.ts',
-    external: ['node_helper', 'logger', 'node-fetch'],
+    external: ['node_helper', 'logger'],
     plugins: [json(), typescript({ module: 'ESNext' }), nodeResolve(), terser(), banner2(() => bannerText)],
     output: {
       file: './node_helper.js',
