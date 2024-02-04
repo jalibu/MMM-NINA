@@ -29,12 +29,14 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
    ```
 
 2. Wechsle nun in das MMM-NINA Modul Verzeichnis und führe darin folgendes Kommando aus, um die Dependencies zu installieren:
+
    ```bash
    npm install --only=production
    ```
+
 3. Ermittle den amtlichen Gemeindeschlüssel deines Ortes aus [dieser Liste](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json).
 
-4. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
+4. Binde das Modul abschließend in die MagicMirror-Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
 
    ```javascript
     {
