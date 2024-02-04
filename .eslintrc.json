@@ -1,14 +1,15 @@
 {
   "root": true,
-  "extends": ["airbnb-typescript-prettier"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic"],
   "ignorePatterns": ["*.js"],
   "rules": {
     "newline-before-return": "warn",
-    "no-restricted-syntax": "off",
+    "no-restricted-syntax": "warn",
     "import/no-unresolved": "off",
     "no-await-in-loop": "warn",
-    "lines-between-class-members": "off",
+    "lines-between-class-members": "warn",
     "class-methods-use-this": "warn",
+    "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-empty-function": "warn",
     "no-param-reassign": "warn"
   }

@@ -5,7 +5,7 @@ import { daten } from './Regionalschluessel_2021-07-31.json'
 
 export default class Utils {
   static transformNinaAlerts(alerts: Alert[], config: Config, alertAgs: string): Alert[] {
-    const now = new Date().getTime()
+    const now = new Date(Date.now()).getTime()
 
     const city = daten.find((ags) => ags[0] === alertAgs)
     if (!city) {
@@ -44,6 +44,7 @@ export default class Utils {
   static orderBySeverity(alerts: Alert[], config: Config): Alert[] {
     if (config.orderBySeverity) {
       const severityOrder = ['Severe', 'Moderate', 'Minor', 'Cancel']
+
       return alerts.sort(
         (a, b) => severityOrder.indexOf(a.payload.data.severity) - severityOrder.indexOf(b.payload.data.severity)
       )
