@@ -1,6 +1,5 @@
 import * as NodeHelper from 'node_helper'
 import * as Log from 'logger'
-import fetch from 'node-fetch'
 import { Config } from '../types/Config'
 import { Alert } from '../types/Alert'
 import Utils from './Utils'

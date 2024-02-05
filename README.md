@@ -7,17 +7,17 @@ Klicke hier für den [Forum Thread](https://forum.magicmirror.builders/topic/154
 
 Feedback und Mithilfe willkommen.
 
-### Support
+## Support
 
 Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beitrag zu meinem nächsten [Feierabend-Bier](https://paypal.me/jalibu).
 
 ## Features
 
 - Das Modul ruft periodisch die NINA API auf und ermittelt Warnmeldungen für deinen Kreis.
-  <img width="540" alt="Screenshot2" src="https://user-images.githubusercontent.com/25933231/132957121-e0fccb58-2a28-4989-b325-968013018df7.png">
+  ![Screenshot1](img/screenshot1.png)
 - Es können Alarme mehrerer Städte/Gemeinden gleichzeitig abgerufen werden.
 - Identische Warnungen können zusammengefasst werden.
-  <img width="540" alt="Screenshot2" src="https://user-images.githubusercontent.com/25933231/137167087-6db8464b-1202-4f1e-a34b-9d448b64f109.png">
+  ![Screenshot2](img/screenshot2.png)
 - 2 unterschiedliche Themes
 
 ## Installation
@@ -25,16 +25,12 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
 1. Navigiere in das `MagicMirror/modules` Verzeichnis und führe folgendes Kommando aus, um das Projekt auf deine Festplatte zu klonen:
 
    ```bash
-   git clone https://github.com/jalibu/MMM-NINA.git
+   git clone https://github.com/jalibu/MMM-NINA
    ```
 
-2. Wechsle nun in das MMM-NINA Modul Verzeichnis und führe darin folgendes Kommando aus, um die Dependencies zu installieren:
-   ```bash
-   npm install --only=production
-   ```
-3. Ermittle den amtlichen Gemeindeschlüssel deines Ortes aus [dieser Liste](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json).
+2. Ermittle den amtlichen Gemeindeschlüssel deines Ortes aus [dieser Liste](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json).
 
-4. Binde das Modul abschließend in die Magic Mirror Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
+3. Binde das Modul abschließend in die MagicMirror-Konfiguration `MagicMirror/config/config.js` ein (Beispiel Konfiguration).
 
    ```javascript
     {
