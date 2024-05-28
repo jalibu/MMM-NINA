@@ -40,6 +40,7 @@
     "prettier": "^3.2.5",
     "rollup": "^4.9.6",
     "rollup-plugin-banner2": "^1.2.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   }
 }
