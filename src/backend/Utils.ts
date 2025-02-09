@@ -13,7 +13,7 @@ export default class Utils {
     }
 
     const filtered = alerts.filter((alert) => {
-      if (config.hideCancelledWarnings && (alert.payload.data.severity === 'Cancel' || alert.payload.data.msgType === 'Cancel')) {
+      if (config.hideCancelledWarnings && alert.payload.data.msgType === 'Cancel') {
         return false
       }
 
