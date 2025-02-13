@@ -1,6 +1,6 @@
 /*! *****************************************************************************
   mmm-nina
-  Version 1.8.1
+  Version 1.8.2
 
   Simple Client Implementierung für die NINA Warn App für die MagicMirror² Plattform.
   Please submit bugs at https://github.com/jalibu/MMM-NINA/issues
