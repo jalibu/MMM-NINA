@@ -13,6 +13,64 @@ All notable changes to this project will be documented in this file. See [commit
 * automated releases with commit-and-tag-version ([1817beb](https://github.com/jalibu/MMM-NINA/commit/1817beb9ce9e843c2463a3b416b26e84520495fa))
 * enforce function documentation with eslint-plugin-jsdoc ([5e26655](https://github.com/jalibu/MMM-NINA/commit/5e26655e5b3927667a6c0d33252a928c634cb5d0))
 
-## Before 1.9.0
+## [1.8.1](https://github.com/jalibu/MMM-NINA/releases/tag/v1.8.1) (2024-02-05)
 
-There are no release notes prior to version 1.9.0. Check the commit history for details.
+### Changes
+
+* Dependencies bereinigt/aktualisiert; Installation nach Git-Clone ohne weitere Downloads
+
+## [1.8.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.8.0) (2024-01-19)
+
+### Features
+
+* Neues Feature `orderBySeverity`: Warnungen werden standardmäßig nach Schweregrad sortiert (deaktivierbar)
+
+## [1.7.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.7.0) (2022-02-19)
+
+### Features
+
+* Neue Optionen `hideCancelledWarnings`, `mergeAlertsByTitle`
+* Umbenennung `mergeAlerts` → `mergeAlertsById` (alias weiter akzeptiert)
+
+## [1.6.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.6.0) (2022-01-10)
+
+### Features
+
+* Event-Icons werden angezeigt, wenn verfügbar
+
+## [1.5.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.5.0) (2022-01-10)
+
+### Features/Fixes
+
+* Option `downgradeCancelSeverity`
+* Fix: `downgradeLhpSeverity` zuverlässiger
+
+## [1.4.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.4.0) (2022-01-09)
+
+### Features
+
+* Provider-Filteroptionen
+
+## [1.3.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.3.0) (2021-10-13)
+
+### Features
+
+* Mehrere Städte abrufbar; alternatives TOP-Theme; Datum/Stadt ausblendbar
+
+## [1.2.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.2.0) (2021-10-03)
+
+### Internal
+
+* Internes Refactoring, ModType v2
+
+## [1.1.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.1.0) (2021-09-16)
+
+### Features
+
+* Neue Optionen `maxWidth`, `showIcon`
+
+## [1.0.0](https://github.com/jalibu/MMM-NINA/releases/tag/v1.0.0) (2021-09-11)
+
+### Initial release
+
+* Erstveröffentlichung; Severity “Severe” rot; Buildprozess harmonisiert
