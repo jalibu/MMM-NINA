@@ -1,7 +1,7 @@
 import * as Log from 'logger'
 import { Alert } from '../types/Alert'
 import { Config } from '../types/Config'
-import { daten } from './Regionalschluessel_2021-07-31.json'
+import { daten } from './Regionalschluessel_2025-07-31.json'
 
 export function transformNinaAlerts(alerts: Alert[], config: Config, alertAgs: string): Alert[] {
   const now = new Date(Date.now()).getTime()
@@ -31,7 +31,7 @@ export function transformNinaAlerts(alerts: Alert[], config: Config, alertAgs: s
       alert.payload.data.severity = 'Cancel'
     }
 
-    alert.cityNames = city ? [city[1]] : []
+    alert.cityNames = city && city[1] ? [city[1]] : []
 
     return alert
   })

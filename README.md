@@ -96,3 +96,40 @@ The source files are located in the `/src` folder.
 Compile target files with `node --run build`.
 
 Contribution for this module is welcome!
+
+### Gemeindeschlüssel aktualisieren
+
+**Hinweis:** Dieser Abschnitt ist für normale Nutzer nicht relevant. In größeren sollten die Gemeindeschlüssel jedoch aktuallisiert werden, um neue Gemeinden zu unterstützen.
+
+Die Datei `src/backend/Regionalschluessel_2025-07-31.json` enthält alle deutschen Gemeinden mit ihren amtlichen Gemeindeschlüsseln (AGS). Diese Datei wird jährlich vom Statistischen Bundesamt aktualisiert.
+
+Um die Datei zu aktualisieren:
+
+1. Download der neuesten Version (ersetze `YYYY-MM-DD` mit dem aktuellen Datum, z.B. `2026-07-31`):
+
+```bash
+cd ~/MagicMirror/modules/MMM-NINA/src/backend
+curl -s "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_YYYY-MM-DD/download/Regionalschl_ssel_YYYY-MM-DD.json" -o Regionalschluessel_YYYY-MM-DD.json
+```
+
+2. Update des Imports in [src/backend/Utils.ts](src/backend/Utils.ts):
+
+```typescript
+// Ändere von:
+import { daten } from './Regionalschluessel_2025-07-31.json'
+
+// zu:
+import { daten } from './Regionalschluessel_YYYY-MM-DD.json'
+```
+
+3. Formatiere die neue Datei mit Prettier:
+
+```bash
+cd ~/MagicMirror/modules/MMM-NINA
+node --run lint:fix
+```
+
+Die neuesten Versionen sind verfügbar unter:
+
+- [xrepository.de - Regionalschlüssel](https://www.xrepository.de/)
+- [Statistisches Bundesamt](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/_inhalt.html)
