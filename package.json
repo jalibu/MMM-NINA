@@ -27,6 +27,7 @@
     "lint": "eslint && prettier --check .",
     "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "simple-git-hooks",
+    "release": "commit-and-tag-version",
     "test": "node --run type-check && node --run lint",
     "type-check": "tsc --noEmit"
   },
@@ -41,6 +42,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/magicmirror-module": "^2.16.6",
+    "commit-and-tag-version": "^12.6.1",
     "eslint": "^9.39.2",
     "eslint-plugin-jsdoc": "^61.5.0",
     "prettier": "^3.7.4",
