@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "strict": true,
     "noUnusedLocals": true,
     "noImplicitThis": true,
     "sourceMap": false,
-    "target": "es6",
+    "target": "ES2024",
     "lib": ["DOM", "ESNext"],
     "resolveJsonModule": true,
     "esModuleInterop": true

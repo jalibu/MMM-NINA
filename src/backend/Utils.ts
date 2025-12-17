@@ -57,22 +57,26 @@ export function removeDuplicates(alerts: Alert[], config: Config): Alert[] {
     if (config.mergeAlertsById) {
       if (knownIds.includes(alert.id)) {
         const existing = alerts.find((existingAlert) => existingAlert.id === alert.id)
-        existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
-
+        if (existing) {
+          existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
+        }
         return false
       }
       knownIds.push(alert.id)
     }
 
     if (config.mergeAlertsByTitle) {
-      if (knownTitles.includes(alert.i18nTitle.de)) {
-        const existing = alerts.find((existingAlert) => existingAlert.i18nTitle.de === alert.i18nTitle.de)
-
-        existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
-
+      const alertTitle = alert.i18nTitle.de
+      if (alertTitle && knownTitles.includes(alertTitle)) {
+        const existing = alerts.find((existingAlert) => existingAlert.i18nTitle.de === alertTitle)
+        if (existing) {
+          existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
+        }
         return false
       }
-      knownTitles.push(alert.i18nTitle.de)
+      if (alertTitle) {
+        knownTitles.push(alertTitle)
+      }
     }
 
     return true

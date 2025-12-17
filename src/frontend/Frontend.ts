@@ -14,7 +14,7 @@ Module.register<Config>('MMM-NINA', {
     excludeProviders: [],
     hideCancelledWarnings: false,
     maxAgeInHours: 6,
-    maxWidth: null,
+    maxWidth: undefined,
     mergeAlertsById: true,
     mergeAlertsByTitle: true,
     orderBySeverity: true,
@@ -57,7 +57,7 @@ Module.register<Config>('MMM-NINA', {
       Log.warn(
         'Die MMM-NINA Konfigurations-Einstellung "mergeAlerts" ist veraltet. Bitte durch "mergeAlertsById" ersetzen.'
       )
-      this.config.mergeAlertsById = this.config.mergeAlerts
+      this.config.mergeAlertsById = !!(this.config as unknown as Record<string, unknown>).mergeAlerts
     }
     this.loadData()
     this.scheduleUpdate()
