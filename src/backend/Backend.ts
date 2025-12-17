@@ -12,7 +12,7 @@ module.exports = NodeHelper.create({
   async socketNotificationReceived(notification: string, payload: unknown) {
     if (notification === 'NINA_ALERTS_REQUEST') {
       const alerts: Alert[] = []
-      const config = payload as Config
+      const { config, identifier } = payload as { config: Config; identifier: string }
 
       // Force ags to be an array
       const ags = Array.isArray(config.ags) ? config.ags : [config.ags]
@@ -30,7 +30,10 @@ module.exports = NodeHelper.create({
         }
       }
 
-      this.sendSocketNotification('NINA_ALERTS_RESPONSE', removeDuplicates(orderBySeverity(alerts, config), config))
+      this.sendSocketNotification('NINA_ALERTS_RESPONSE', {
+        alerts: removeDuplicates(orderBySeverity(alerts, config), config),
+        identifier
+      })
     } else {
       Log.warn(`${notification} is invalid notification`)
     }

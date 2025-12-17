@@ -53,6 +53,9 @@ Module.register<Config>('MMM-NINA', {
   },
 
   start() {
+    // Initialize alerts to avoid undefined template access before first fetch
+    this.alerts = []
+
     if ('mergeAlerts' in this.config) {
       Log.warn(
         'Die MMM-NINA Konfigurations-Einstellung "mergeAlerts" ist veraltet. Bitte durch "mergeAlertsById" ersetzen.'
@@ -71,12 +74,21 @@ Module.register<Config>('MMM-NINA', {
   },
 
   loadData() {
-    this.sendSocketNotification('NINA_ALERTS_REQUEST', this.config)
+    this.sendSocketNotification('NINA_ALERTS_REQUEST', {
+      config: this.config,
+      identifier: this.identifier
+    })
   },
 
   socketNotificationReceived(notificationIdentifier: string, payload: unknown) {
     if (notificationIdentifier === 'NINA_ALERTS_RESPONSE') {
-      const alerts = payload as Alert[]
+      const { alerts, identifier } = payload as { alerts: Alert[]; identifier: string }
+
+      // Ignore responses meant for other module instances
+      if (identifier !== this.identifier) {
+        return
+      }
+
       this.alerts = alerts.map((alert: Alert) => {
         alert.date = moment(new Date(alert.sent)).format('DD.MM.YYYY - HH:mm')
 
