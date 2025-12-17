@@ -3,6 +3,13 @@ import { Alert } from '../types/Alert'
 import { Config } from '../types/Config'
 import { daten } from './Regionalschluessel_2025-07-31.json'
 
+/**
+ * Transformiert NINA API Alerts und wendet Config-Filter an.
+ * @param alerts - Rohes Alert-Array von der NINA API
+ * @param config - Module-Konfiguration mit Filtern und Einstellungen
+ * @param alertAgs - AGS-Code der Gemeinde
+ * @returns Gefilterte und angereicherte Alerts mit Stadt-Namen
+ */
 export function transformNinaAlerts(alerts: Alert[], config: Config, alertAgs: string): Alert[] {
   const now = new Date(Date.now()).getTime()
 
@@ -37,6 +44,12 @@ export function transformNinaAlerts(alerts: Alert[], config: Config, alertAgs: s
   })
 }
 
+/**
+ * Sortiert Alerts nach Schweregrad (falls konfiguriert).
+ * @param alerts - Alert-Array
+ * @param config - Konfiguration mit orderBySeverity-Flag
+ * @returns Sortierte Alerts (Severe > Moderate > Minor > Cancel) oder unveränderte Liste
+ */
 export function orderBySeverity(alerts: Alert[], config: Config): Alert[] {
   if (config.orderBySeverity) {
     const severityOrder = ['Severe', 'Moderate', 'Minor', 'Cancel']
@@ -49,6 +62,12 @@ export function orderBySeverity(alerts: Alert[], config: Config): Alert[] {
   return alerts
 }
 
+/**
+ * Dedupliziert Alerts basierend auf ID und/oder Titel.
+ * @param alerts - Alert-Array
+ * @param config - Konfiguration mit mergeAlertsById/Title-Flags
+ * @returns Gefilterte Alerts mit zusammengefassten Stadt-Namen
+ */
 export function removeDuplicates(alerts: Alert[], config: Config): Alert[] {
   const knownIds: string[] = []
   const knownTitles: string[] = []
@@ -83,6 +102,11 @@ export function removeDuplicates(alerts: Alert[], config: Config): Alert[] {
   })
 }
 
+/**
+ * Normalisiert einen AGS-Code auf die Dashboard-Query-Form.
+ * @param ags - AGS-Code (z.B. "110000000000")
+ * @returns Normalisierter AGS ohne die letzten 7 Ziffern (z.B. "1100000000")
+ */
 export function harmonizeAgs(ags: string): string {
   return `${ags.substring(0, ags.length - 7)}0000000`
 }
