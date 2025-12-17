@@ -1,11 +1,10 @@
-import banner2 from 'rollup-plugin-banner2'
 import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import json from '@rollup/plugin-json'
 import terser from '@rollup/plugin-terser'
 
-import pkg from './package.json' assert { type: 'json' }
+import pkg from './package.json' with { type: 'json' }
 
 const bannerText = `/*! *****************************************************************************
   ${pkg.name}
@@ -25,9 +24,15 @@ export default [
   {
     input: './src/frontend/Frontend.ts',
     external: ['logger'],
-    plugins: [typescript({ module: 'ESNext' }), nodeResolve(), commonjs(), terser(), banner2(() => bannerText)],
+    plugins: [typescript({ module: 'ESNext' }), nodeResolve(), commonjs(), terser({
+      format: {
+        comments: false,
+        preamble: bannerText.trim()
+      }
+    })],
     output: {
-      file: './' + pkg.main,
+      banner: bannerText,
+      file: `./${pkg.main}`,
       format: 'iife',
       globals: {
         logger: 'Log'
@@ -37,8 +42,14 @@ export default [
   {
     input: './src/backend/Backend.ts',
     external: ['node_helper', 'logger'],
-    plugins: [json(), typescript({ module: 'ESNext' }), nodeResolve(), terser(), banner2(() => bannerText)],
+    plugins: [json(), typescript({ module: 'ESNext' }), nodeResolve(), terser({
+      format: {
+        comments: false,
+        preamble: bannerText.trim()
+      }
+    })],
     output: {
+      banner: bannerText,
       file: './node_helper.js',
       format: 'cjs'
     }

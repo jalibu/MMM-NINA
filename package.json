@@ -39,7 +39,6 @@
     "eslint": "^8.56.0",
     "prettier": "^3.2.5",
     "rollup": "^4.9.6",
-    "rollup-plugin-banner2": "^1.2.2",
     "typescript": "^5.3.3"
   }
 }
