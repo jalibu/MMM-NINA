@@ -78,7 +78,6 @@ Module.register<Config>('MMM-NINA', {
     if (notificationIdentifier === 'NINA_ALERTS_RESPONSE') {
       const alerts = payload as Alert[]
       this.alerts = alerts.map((alert: Alert) => {
-        // eslint-disable-next-line no-param-reassign
         alert.date = moment(new Date(alert.sent)).format('DD.MM.YYYY - HH:mm')
 
         return alert

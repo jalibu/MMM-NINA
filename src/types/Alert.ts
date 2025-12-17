@@ -1,4 +1,4 @@
-export type Alert = {
+export interface Alert {
   id: string
   sent: string
   date: string
@@ -19,6 +19,6 @@ export type Alert = {
   }
 }
 
-export type AlertDetails = {
+export interface AlertDetails {
   info: { category: string; event: string; senderName: string; description: string }[]
 }

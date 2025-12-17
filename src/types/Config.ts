@@ -1,4 +1,4 @@
-export type Config = {
+export interface Config {
   ags: string | string[]
   downgradeLhpSeverity: boolean
   downgradeCancelSeverity: boolean
