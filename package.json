@@ -23,7 +23,7 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "dev": "rollup -c --sourcemap=inline --bundleConfigAsCjs",
-    "dev:watch": "npm run dev -- --watch",
+    "dev:watch": "node --run dev -- --watch",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier . --write"
   },
