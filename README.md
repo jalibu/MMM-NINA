@@ -133,3 +133,7 @@ Die neuesten Versionen sind verfügbar unter:
 
 - [xrepository.de - Regionalschlüssel](https://www.xrepository.de/)
 - [Statistisches Bundesamt](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/_inhalt.html)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
