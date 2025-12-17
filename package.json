@@ -36,6 +36,11 @@
     "pre-commit": "node --run test",
     "pre-push": "node --run build"
   },
+  "commit-and-tag-version": {
+    "scripts": {
+      "postbump": "node --run build && git add MMM-NINA.js node_helper.js"
+    }
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-json": "^6.1.0",
