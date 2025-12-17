@@ -24,12 +24,17 @@ export default [
   {
     input: './src/frontend/Frontend.ts',
     external: ['logger'],
-    plugins: [typescript({ module: 'ESNext' }), nodeResolve(), commonjs(), terser({
-      format: {
-        comments: false,
-        preamble: bannerText.trim()
-      }
-    })],
+    plugins: [
+      typescript({ module: 'ESNext' }),
+      nodeResolve(),
+      commonjs(),
+      terser({
+        format: {
+          comments: false,
+          preamble: bannerText.trim()
+        }
+      })
+    ],
     output: {
       banner: bannerText,
       file: `./${pkg.main}`,
@@ -42,12 +47,17 @@ export default [
   {
     input: './src/backend/Backend.ts',
     external: ['node_helper', 'logger'],
-    plugins: [json(), typescript({ module: 'ESNext' }), nodeResolve(), terser({
-      format: {
-        comments: false,
-        preamble: bannerText.trim()
-      }
-    })],
+    plugins: [
+      json(),
+      typescript({ module: 'ESNext' }),
+      nodeResolve(),
+      terser({
+        format: {
+          comments: false,
+          preamble: bannerText.trim()
+        }
+      })
+    ],
     output: {
       banner: bannerText,
       file: './node_helper.js',

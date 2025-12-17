@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/jalibu/MMM-NINA#readme",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
-    "dev": "rollup -c --sourcemap=inline --bundleConfigAsCjs",
+    "build": "rollup -c",
+    "dev": "rollup -c --sourcemap=inline",
     "dev:watch": "node --run dev -- --watch",
     "lint": "eslint && prettier --check .",
     "lint:fix": "eslint --fix && prettier . --write"
