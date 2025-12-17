@@ -24,8 +24,8 @@
     "build": "rollup -c --bundleConfigAsCjs",
     "dev": "rollup -c --sourcemap=inline --bundleConfigAsCjs",
     "dev:watch": "node --run dev -- --watch",
-    "lint": "eslint . && prettier --check .",
-    "lint:fix": "eslint . --fix && prettier . --write"
+    "lint": "eslint && prettier --check .",
+    "lint:fix": "eslint --fix && prettier . --write"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
