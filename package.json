@@ -22,6 +22,7 @@
   "homepage": "https://github.com/jalibu/MMM-NINA#readme",
   "scripts": {
     "build": "rollup -c",
+    "demo": "cd ../../ && MM_CONFIG_FILE=modules/MMM-NINA/config.demo.js node --run start:wayland:dev",
     "dev": "rollup -c --sourcemap=inline",
     "dev:watch": "node --run dev -- --watch",
     "lint": "eslint && prettier --check .",

@@ -98,39 +98,40 @@ Contribution for this module is welcome!
 
 ### Available Scripts
 
-| Script               | Purpose                                                            |
-| -------------------- | ------------------------------------------------------------------ |
-| `npm run build`      | Production build (minified, optimized)                             |
-| `npm run dev`        | Development build with inline sourcemaps                           |
-| `npm run dev:watch`  | Watch mode for active development                                  |
-| `npm run test`       | Full quality check (TypeScript + ESLint + Prettier)                |
-| `npm run type-check` | TypeScript type validation only                                    |
-| `npm run lint`       | Check code style (ESLint + Prettier)                               |
-| `npm run lint:fix`   | Auto-fix code style issues                                         |
-| `npm run release`    | Create release (bumps version, updates CHANGELOG, creates git tag) |
+| Script                  | Purpose                                                                             |
+| ----------------------- | ----------------------------------------------------------------------------------- |
+| `node --run build`      | Production build (minified, optimized)                                              |
+| `node --run dev`        | Development build with inline sourcemaps                                            |
+| `node --run demo`       | Start MagicMirror with demo config (MM_CONFIG_FILE=modules/MMM-NINA/config.demo.js) |
+| `node --run dev:watch`  | Watch mode for active development                                                   |
+| `node --run test`       | Full quality check (TypeScript + ESLint + Prettier)                                 |
+| `node --run type-check` | TypeScript type validation only                                                     |
+| `node --run lint`       | Check code style (ESLint + Prettier)                                                |
+| `node --run lint:fix`   | Auto-fix code style issues                                                          |
+| `node --run release`    | Create release (bumps version, updates CHANGELOG, creates git tag)                  |
 
 **Development Workflow:**
 
 ```bash
 # Start development with watch mode
-npm run dev:watch
+node --run dev:watch
 
 # Before committing, run full quality check
-npm run test
+node --run test
 
 # Auto-fix any linting/formatting issues
-npm run lint:fix
+node --run lint:fix
 
 # When ready for release
-npm run release
+node --run release
 ```
 
 **Git Hooks:**
 
 Folgende Git Hooks sind automatisch aktiviert:
 
-- **pre-commit**: Führt `npm run test` aus (verhindert untesteten Code)
-- **pre-push**: Führt `npm run build` aus (verhindert nicht-kompilierten Code)
+- **pre-commit**: Führt `node --run test` aus (verhindert untesteten Code)
+- **pre-push**: Führt `node --run build` aus (verhindert nicht-kompilierten Code)
 
 ### Gemeindeschlüssel aktualisieren
 
