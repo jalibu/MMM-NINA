@@ -58,6 +58,15 @@ Wenn du meine Arbeit schätzt, dann freue ich mich über einen bescheidenen Beit
     }
    ```
 
+## Update
+
+Um das Modul zu aktualisieren, navigiere in das Modulverzeichnis und führe ein `git pull` aus:
+
+```bash
+cd ~/MagicMirror/modules/MMM-NINA
+git pull
+```
+
 ### Optionen
 
 | Feld                    | Beschreibung                                                                                                                            | Default                     |
