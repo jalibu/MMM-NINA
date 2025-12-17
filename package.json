@@ -26,8 +26,13 @@
     "dev:watch": "node --run dev -- --watch",
     "lint": "eslint && prettier --check .",
     "lint:fix": "eslint --fix && prettier . --write",
+    "prepare": "simple-git-hooks",
     "test": "node --run type-check && node --run lint",
     "type-check": "tsc --noEmit"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "node --run test",
+    "pre-push": "node --run build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
@@ -40,6 +45,7 @@
     "eslint-plugin-jsdoc": "^61.5.0",
     "prettier": "^3.7.4",
     "rollup": "^4.53.5",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.50.0"
   }
