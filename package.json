@@ -57,6 +57,6 @@
     "rollup": "^4.60.0",
     "simple-git-hooks": "^2.13.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.2"
+    "typescript-eslint": "^8.58.0"
   }
 }
