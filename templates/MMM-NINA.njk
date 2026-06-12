@@ -4,9 +4,9 @@
       <div class="nina-alert severity-{{ alert.payload.data.severity }}">
         {% if config.showIcon %}
           {% if alert.payload.data.transKeys.event %}
-            <img class="nina-icon" src="https://warnung.bund.de/api31/appdata/gsb/eventCodes/{{ alert.payload.data.transKeys.event }}.png">
+            <img class="nina-icon" src="https://warnung.bund.de/api/appdata/gsb/eventCodes/SubSites/Warnung/MowasEventCodes/{{ alert.payload.data.transKeys.event }}.png?__blob=normal&v=1">
           {% else %}
-            <img class="nina-icon" src="https://warnung.bund.de/api31/appdata/gsb/eventCodes/BBK-EVC-001.png">
+            <img class="nina-icon" src="https://warnung.bund.de/api/appdata/gsb/eventCodes/SubSites/Warnung/MowasEventCodes/BBK-EVC-001.png?__blob=normal&v=1">
           {% endif %}
         {% endif %}
         <div class="nina-alert-data">
