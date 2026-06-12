@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.3](https://github.com/jalibu/MMM-NINA/compare/v2.0.2...v2.0.3) (2026-06-12)
+
+
+### Fixed
+
+* update import statement for NodeHelper to default import ([a23737a](https://github.com/jalibu/MMM-NINA/commit/a23737a46f77db678caf39b6f7143d9773df53d4))
+* update NINA icon URLs to current warnung.bund.de API endpoint ([#48](https://github.com/jalibu/MMM-NINA/issues/48)) ([96bcfa0](https://github.com/jalibu/MMM-NINA/commit/96bcfa0cacdcd049bdcf1d5a097daefc3baa7833))
+* validate HTTP status for NINA API requests ([555131c](https://github.com/jalibu/MMM-NINA/commit/555131c3623c71b432dca8ccf8bce589e7591155))
+
+
+### Chores
+
+* add missing devDependency ([60aca8a](https://github.com/jalibu/MMM-NINA/commit/60aca8ab688b286aa33d0879be19889aa31b7cc8))
+* update devDependencies ([1bb3d35](https://github.com/jalibu/MMM-NINA/commit/1bb3d3522f19b54313a0675ee96d652c48bfbdf5))
+
+
+### Code Refactoring
+
+* simplify removeDuplicates logic ([0d2fb6d](https://github.com/jalibu/MMM-NINA/commit/0d2fb6d3fbba579174cb95d8f76caad03c2e81c7))
+
 ## [2.0.2](https://github.com/jalibu/MMM-NINA/compare/v2.0.1...v2.0.2) (2026-04-15)
 
 
