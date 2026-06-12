@@ -61,11 +61,17 @@ module.exports = NodeHelper.create({
       const validAgs = getValidAgsEntries(rawAgs)
 
       const responses = await Promise.all(
-        validAgs.map(({ normalized }) =>
-          fetch(`https://warnung.bund.de/api31/dashboard/${toDashboardAgs(normalized)}.json`)
-            .then((r) => r.json())
-            .catch((e: Error) => e)
-        )
+        validAgs.map(async ({ normalized }) => {
+          try {
+            const response = await fetch(`https://warnung.bund.de/api31/dashboard/${toDashboardAgs(normalized)}.json`)
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+            }
+            return await response.json()
+          } catch (e) {
+            return e instanceof Error ? e : new Error(String(e))
+          }
+        })
       )
 
       for (const [i, response] of responses.entries()) {
