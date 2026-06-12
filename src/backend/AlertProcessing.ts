@@ -56,41 +56,37 @@ export function orderBySeverity(alerts: Alert[], config: Config): Alert[] {
 }
 
 /**
+ * Prüft, ob zwei Alerts als Duplikat gelten (gleiche ID oder gleicher Titel).
+ * @param alert - Das zu prüfende Alert
+ * @param existing - Das bereits in der result-Liste vorhandene Alert
+ * @param config - Konfiguration mit mergeAlertsById/Title-Flags
+ * @returns true wenn die Alerts als Duplikat gelten, sonst false
+ */
+function isDuplicate(alert: Alert, existing: Alert, config: Config): boolean {
+  const isSameId = config.mergeAlertsById && alert.id === existing.id
+  const isSameTitle =
+    config.mergeAlertsByTitle && !!(alert.i18nTitle.de && alert.i18nTitle.de === existing.i18nTitle.de)
+  return !!(isSameId || isSameTitle)
+}
+
+/**
  * Dedupliziert Alerts basierend auf ID und/oder Titel.
  * @param alerts - Alert-Array
  * @param config - Konfiguration mit mergeAlertsById/Title-Flags
  * @returns Gefilterte Alerts mit zusammengefassten Stadt-Namen
  */
 export function removeDuplicates(alerts: Alert[], config: Config): Alert[] {
-  const knownIds: string[] = []
-  const knownTitles: string[] = []
+  const result: Alert[] = []
 
-  return alerts.filter((alert) => {
-    if (config.mergeAlertsById) {
-      if (knownIds.includes(alert.id)) {
-        const existing = alerts.find((existingAlert) => existingAlert.id === alert.id)
-        if (existing) {
-          existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
-        }
-        return false
-      }
-      knownIds.push(alert.id)
+  for (const alert of alerts) {
+    const existing = result.find((a) => isDuplicate(alert, a, config))
+
+    if (existing) {
+      existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
+    } else {
+      result.push(alert)
     }
+  }
 
-    if (config.mergeAlertsByTitle) {
-      const alertTitle = alert.i18nTitle.de
-      if (alertTitle && knownTitles.includes(alertTitle)) {
-        const existing = alerts.find((existingAlert) => existingAlert.i18nTitle.de === alertTitle)
-        if (existing) {
-          existing.cityNames = [...new Set([...existing.cityNames, ...alert.cityNames])]
-        }
-        return false
-      }
-      if (alertTitle) {
-        knownTitles.push(alertTitle)
-      }
-    }
-
-    return true
-  })
+  return result
 }
