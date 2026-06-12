@@ -1,4 +1,4 @@
-import * as NodeHelper from 'node_helper'
+import NodeHelper from 'node_helper'
 import * as Log from 'logger'
 import { Config } from '../types/Config'
 import { Alert } from '../types/Alert'
