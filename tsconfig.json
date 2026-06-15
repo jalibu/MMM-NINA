@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitThis": true,
     "sourceMap": false,
-    "target": "ES2024",
+    "target": "ESNext",
     "lib": ["DOM", "ESNext"],
     "types": ["magicmirror-module"],
     "resolveJsonModule": true,
