@@ -2,10 +2,6 @@ import * as Log from 'logger'
 import { Config } from '../types/Config'
 import { Alert } from '../types/Alert'
 
-// Global or injected variable declarations
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare const moment: any
-
 Module.register<Config>('MMM-NINA', {
   defaults: {
     ags: '110000000000',
@@ -28,10 +24,6 @@ Module.register<Config>('MMM-NINA', {
 
   getStyles() {
     return ['font-awesome.css', 'MMM-NINA.css']
-  },
-
-  getScripts: () => {
-    return ['moment.js']
   },
 
   getTranslations() {
@@ -89,8 +81,14 @@ Module.register<Config>('MMM-NINA', {
         return
       }
 
+      // Locale-aware date formatting based on the MagicMirror config.
+      const dateFormatter = new Intl.DateTimeFormat(config.language, {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      })
+
       this.alerts = alerts.map((alert: Alert) => {
-        alert.date = moment(new Date(alert.sent)).format('DD.MM.YYYY - HH:mm')
+        alert.date = dateFormatter.format(new Date(alert.sent))
 
         return alert
       })
