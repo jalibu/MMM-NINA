@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.4](https://github.com/jalibu/MMM-NINA/compare/v2.0.3...v2.0.4) (2026-07-05)
+
+
+### Chores
+
+* update checkout action ([a407f89](https://github.com/jalibu/MMM-NINA/commit/a407f89ed68f88d698db3ebff88c3e3e17c9108c))
+* update devDependencies ([b5d77d3](https://github.com/jalibu/MMM-NINA/commit/b5d77d3681231a3ea6f747379fa0db8396e545c4))
+
+
+### Code Refactoring
+
+* replace moment with locale-aware Intl.DateTimeFormat for alert dates ([607763a](https://github.com/jalibu/MMM-NINA/commit/607763a3c6854afa372ccbe1ccac7d927abadf99))
+* simplify rollup config ([270ecdc](https://github.com/jalibu/MMM-NINA/commit/270ecdc7acf9432e950c5f63f3a5997bca746c0e))
+
+
+### Build System
+
+* switch to ESNext bundler settings ([00d3a3e](https://github.com/jalibu/MMM-NINA/commit/00d3a3e6053b1c6613534deac1d78e96b606ebc0))
+
 ## [2.0.3](https://github.com/jalibu/MMM-NINA/compare/v2.0.2...v2.0.3) (2026-06-12)
 
 
