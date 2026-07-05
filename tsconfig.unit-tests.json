@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
+    "noCheck": true,
     "outDir": ".test-dist",
     "rootDir": "src",
     "module": "commonjs",

@@ -20,21 +20,23 @@ const bannerText = `/*! ********************************************************
 ***************************************************************************** */
 
 `
+
+const typescriptPlugin = typescript({ module: 'ESNext', moduleResolution: 'bundler' })
+const minifyPlugin = terser({
+  format: {
+    comments: false,
+    preamble: bannerText.trim()
+  }
+})
+
+const frontendPlugins = [typescriptPlugin, nodeResolve(), commonjs(), minifyPlugin]
+const backendPlugins = [json(), typescriptPlugin, nodeResolve(), minifyPlugin]
+
 export default [
   {
     input: './src/frontend/Frontend.ts',
     external: ['logger'],
-    plugins: [
-      typescript({ module: 'ESNext', moduleResolution: 'bundler' }),
-      nodeResolve(),
-      commonjs(),
-      terser({
-        format: {
-          comments: false,
-          preamble: bannerText.trim()
-        }
-      })
-    ],
+    plugins: frontendPlugins,
     output: {
       banner: bannerText,
       file: `./${pkg.main}`,
@@ -47,17 +49,7 @@ export default [
   {
     input: './src/backend/Backend.ts',
     external: ['node_helper', 'logger'],
-    plugins: [
-      json(),
-      typescript({ module: 'ESNext', moduleResolution: 'bundler' }),
-      nodeResolve(),
-      terser({
-        format: {
-          comments: false,
-          preamble: bannerText.trim()
-        }
-      })
-    ],
+    plugins: backendPlugins,
     output: {
       banner: bannerText,
       file: './node_helper.js',
