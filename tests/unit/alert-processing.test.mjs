@@ -1,4 +1,4 @@
-import { describe, it } from 'node:test'
+import { after, describe, it, mock } from 'node:test'
 import assert from 'node:assert/strict'
 import { createRequire } from 'node:module'
 
@@ -8,6 +8,10 @@ const {
   removeDuplicates,
   transformNinaAlerts
 } = require('../../.test-dist/backend/AlertProcessing.js')
+
+const FIXED_NOW = new Date('2026-09-18T12:00:00.000Z')
+mock.timers.enable({ apis: ['Date'], now: FIXED_NOW })
+after(() => mock.timers.reset())
 
 const createConfig = (overrides = {}) => ({
   ags: ['110000000000'],
