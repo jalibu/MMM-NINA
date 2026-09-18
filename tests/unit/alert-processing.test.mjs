@@ -93,6 +93,40 @@ describe('removeDuplicates', () => {
     assert.equal(result.length, 1)
     assert.deepEqual(result[0].cityNames.sort(), ['Berlin', 'Leipzig'])
   })
+
+  it('does not merge alerts when both merge options are disabled', () => {
+    const alerts = [
+      createAlert('id-1', 'Severe', 'Warnung', 'Berlin'),
+      createAlert('id-1', 'Severe', 'Warnung', 'Hamburg')
+    ]
+
+    const result = removeDuplicates(alerts, createConfig({ mergeAlertsById: false, mergeAlertsByTitle: false }))
+
+    assert.equal(result.length, 2)
+  })
+
+  it('deduplicates city names while merging alerts', () => {
+    const alerts = [
+      createAlert('id-1', 'Severe', 'Warnung', 'Berlin'),
+      createAlert('id-1', 'Severe', 'Warnung', 'Berlin'),
+      createAlert('id-1', 'Severe', 'Warnung', 'Hamburg')
+    ]
+
+    const result = removeDuplicates(alerts, createConfig({ mergeAlertsByTitle: false }))
+
+    assert.deepEqual(result[0].cityNames.sort(), ['Berlin', 'Hamburg'])
+  })
+
+  it('does not merge alerts when both German titles are missing', () => {
+    const alerts = [
+      createAlert('id-1', 'Severe', undefined, 'Berlin'),
+      createAlert('id-2', 'Severe', undefined, 'Hamburg')
+    ]
+
+    const result = removeDuplicates(alerts, createConfig({ mergeAlertsById: false, mergeAlertsByTitle: true }))
+
+    assert.equal(result.length, 2)
+  })
 })
 
 describe('transformNinaAlerts', () => {
@@ -141,5 +175,19 @@ describe('transformNinaAlerts', () => {
     const result = transformNinaAlerts(alerts, createConfig({ excludeProviders: ['LHP'] }), 'Berlin')
     assert.equal(result.length, 1)
     assert.equal(result[0].id, '2')
+  })
+
+  it('downgrades LHP severity when configured', () => {
+    const alerts = [createRawAlert('lhp', 'Alert', 'LHP')]
+    const result = transformNinaAlerts(alerts, createConfig({ downgradeLhpSeverity: true }), 'Berlin')
+
+    assert.equal(result[0].payload.data.severity, 'Moderate')
+  })
+
+  it('downgrades cancelled alert severity when configured', () => {
+    const alerts = [createRawAlert('cancel', 'Cancel')]
+    const result = transformNinaAlerts(alerts, createConfig({ downgradeCancelSeverity: true }), 'Berlin')
+
+    assert.equal(result[0].payload.data.severity, 'Cancel')
   })
 })
