@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.5](https://github.com/jalibu/MMM-NINA/compare/v2.0.4...v2.0.5) (2026-09-18)
+
+### Performance Improvements
+
+* use Map for O(1) city name lookup ([1d95ac6](https://github.com/jalibu/MMM-NINA/commit/1d95ac6cb9674397d7d6a37922ec4d82b67287d3))
+
+### Documentation
+
+* restructure config section to match other modules' README style ([e9f358f](https://github.com/jalibu/MMM-NINA/commit/e9f358f1103718716c10da1ccba62a94852c7326))
+
+### Chores
+
+* modernize ESLint configuration ([3627810](https://github.com/jalibu/MMM-NINA/commit/3627810ec9f03c3a078ffb3bbedc2ac0e7224a31))
+* update devDependencies ([cb5aa64](https://github.com/jalibu/MMM-NINA/commit/cb5aa646da33ab710c72907675407f8d3701c1a0))
+* update Node.js setup action ([5c66054](https://github.com/jalibu/MMM-NINA/commit/5c66054811994139a1ea1b65197a36c53fef8bca))
+
+### Code Refactoring
+
+* remove deprecated mergeAlerts option ([585c7ef](https://github.com/jalibu/MMM-NINA/commit/585c7ef57144ed4560b741394551575cb9a682f7))
+* use Promise.allSettled for parallel API requests ([2f4bd97](https://github.com/jalibu/MMM-NINA/commit/2f4bd97ac5f1a4c8a4ff1bb998399617603ff167))
+
+### Tests
+
+* cover alert processing edge cases ([a31ee3f](https://github.com/jalibu/MMM-NINA/commit/a31ee3fd9587f46910d1dc3057dbac3a00218e02))
+* cover NINA dashboard API requests ([5e3a355](https://github.com/jalibu/MMM-NINA/commit/5e3a355f0bf0972494e76b7c929e44b77aaf96b0))
+* make alert processing tests deterministic ([aa631f6](https://github.com/jalibu/MMM-NINA/commit/aa631f6584f51b2640808b5124e7835513ca3f6a))
+
 ## [2.0.4](https://github.com/jalibu/MMM-NINA/compare/v2.0.3...v2.0.4) (2026-07-05)
 
 
