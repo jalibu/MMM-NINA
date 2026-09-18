@@ -86,7 +86,6 @@ Binde das Modul anschließend in die MagicMirror-Konfiguration `config/config.js
 | `hideCancelledWarnings`   | `boolean`  | `false`                     | **Optional**<br>Versteckt aufgehobene Warnungen.                                                                                              |
 | `maxAgeInHours`           | `number`   | `6`                         | **Optional**<br>Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden.                                                  |
 | `maxWidth`                | `string`   | `undefined` (deaktiviert)   | **Optional**<br>CSS Style für maximale Breite des Moduls, z. B. `"220px"`. Weglassen, um zu deaktivieren.                                     |
-| `mergeAlerts`             | `boolean`  | `-`                         | _Veraltet_. Bitte stattdessen `mergeAlertsById` verwenden.                                                                                    |
 | `mergeAlertsById`         | `boolean`  | `true`                      | **Optional**<br>Fasst gleiche Meldungen zusammen, sofern Alerts für mehrere Gemeinden abgefragt werden.                                       |
 | `mergeAlertsByTitle`      | `boolean`  | `true`                      | **Optional**<br>Fasst Meldungen mit gleichem Titel zusammen.                                                                                  |
 | `orderBySeverity`         | `boolean`  | `true`                      | **Optional**<br>Zeigt Warnmeldungen absteigend nach ihrem Schweregrad an.                                                                     |
@@ -144,7 +143,7 @@ Folgende Git Hooks sind automatisch aktiviert:
 
 ### Gemeindeschlüssel aktualisieren
 
-**Hinweis:** Dieser Abschnitt ist für normale Nutzer nicht relevant. In größeren sollten die Gemeindeschlüssel jedoch aktuallisiert werden, um neue Gemeinden zu unterstützen.
+**Hinweis:** Dieser Abschnitt ist für normale Nutzer nicht relevant. In größeren Abständen sollten die Gemeindeschlüssel jedoch aktuallisiert werden, um neue Gemeinden zu unterstützen.
 
 Die Datei `src/backend/Regionalschluessel_2026-03-31.json` enthält alle deutschen Gemeinden mit ihren amtlichen Gemeindeschlüsseln (AGS). Diese Datei wird jährlich vom Statistischen Bundesamt aktualisiert.
 

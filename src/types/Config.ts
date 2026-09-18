@@ -6,7 +6,6 @@ export interface Config {
   hideCancelledWarnings: boolean
   maxAgeInHours: number
   maxWidth?: string
-  mergeAlerts?: boolean
   mergeAlertsById: boolean
   mergeAlertsByTitle: boolean
   orderBySeverity: boolean

@@ -48,12 +48,6 @@ Module.register<Config>('MMM-NINA', {
     // Initialize alerts to avoid undefined template access before first fetch
     this.alerts = []
 
-    if ('mergeAlerts' in this.config) {
-      Log.warn(
-        'Die MMM-NINA Konfigurations-Einstellung "mergeAlerts" ist veraltet. Bitte durch "mergeAlertsById" ersetzen.'
-      )
-      this.config.mergeAlertsById = !!(this.config as unknown as Record<string, unknown>).mergeAlerts
-    }
     this.loadData()
     this.scheduleUpdate()
     this.updateDom()
