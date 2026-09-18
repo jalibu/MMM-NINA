@@ -2,8 +2,9 @@ import NodeHelper from 'node_helper'
 import * as Log from 'logger'
 import { Config } from '../types/Config'
 import { Alert } from '../types/Alert'
-import { normalizeAgs, toDashboardAgs } from './Ags'
+import { normalizeAgs } from './Ags'
 import { orderBySeverity, removeDuplicates, transformNinaAlerts } from './AlertProcessing'
+import { fetchDashboardAlerts } from './NinaApi'
 import { daten } from './Regionalschluessel_2026-03-31.json'
 
 declare const module: { exports: unknown }
@@ -53,15 +54,7 @@ module.exports = NodeHelper.create({
       const rawAgs = Array.isArray(config.ags) ? config.ags : [config.ags]
       const validAgs = getValidAgsEntries(rawAgs)
 
-      const responses = await Promise.allSettled(
-        validAgs.map(async ({ normalized }) => {
-          const response = await fetch(`https://warnung.bund.de/api31/dashboard/${toDashboardAgs(normalized)}.json`)
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-          }
-          return await response.json()
-        })
-      )
+      const responses = await fetchDashboardAlerts(validAgs.map(({ normalized }) => normalized))
 
       for (const [i, result] of responses.entries()) {
         if (result.status === 'rejected') {

@@ -9,5 +9,5 @@
     "declaration": false,
     "sourceMap": false
   },
-  "include": ["src/backend/Ags.ts", "src/backend/AlertProcessing.ts"]
+  "include": ["src/backend/Ags.ts", "src/backend/AlertProcessing.ts", "src/backend/NinaApi.ts"]
 }
