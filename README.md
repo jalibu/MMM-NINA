@@ -39,13 +39,18 @@ git pull
 
 ## Config
 
-1. Ermittle den amtlichen Gemeindeschlüssel (AGS) deines Ortes:
-   a. Über das [Gemeindeverzeichnis der Statistikämter](https://www.statistikportal.de/de/gemeindeverzeichnis) (einfach für manuelle Suche).
-   b. Alternativ über die maschinenlesbare Liste von [xrepository.de](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2026-03-31/download/Regionalschl_ssel_2026-03-31.json).
+### Gemeindeschlüssel ermitteln
 
-2. Binde das Modul anschließend in die MagicMirror-Konfiguration `MagicMirror/config/config.js` ein. Beispiel-Konfiguration:
+Ermittle zunächst den amtlichen Gemeindeschlüssel (AGS) deines Ortes:
 
-   ```javascript
+- Über das [Gemeindeverzeichnis der Statistikämter](https://www.statistikportal.de/de/gemeindeverzeichnis) (einfach für manuelle Suche).
+- Alternativ über die maschinenlesbare Liste von [xrepository.de](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2026-03-31/download/Regionalschl_ssel_2026-03-31.json).
+
+### Konfigurationsbeispiel
+
+Binde das Modul anschließend in die MagicMirror-Konfiguration `config/config.js` ein:
+
+```js
     {
         module: "MMM-NINA",
         position: "top_right",
@@ -68,29 +73,29 @@ git pull
             updateIntervalInSeconds: 120,
         }
     },
-   ```
+```
 
-### Optionen
+### Konfigurationsoptionen
 
-| Feld                    | Beschreibung                                                                                                                                                 | Default                     |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
-| ags                     | (Liste von Strings) Amtlicher Gemeindeschlüssel/Regionalschlüssel (AGS), 12-stellig<br>**Wichtig**: Werte unbedingt als String mit führenden Nullen angeben! | `["110000000000"]` (Berlin) |
-| downgradeLhpSeverity    | (Boolean) Reduziert die Severity von Meldungen des `Länderübergreifenden Hochwasser Portals (LHP)` auf "Minor"                                               | `false`                     |
-| downgradeCancelSeverity | (Boolean) Aufgehobene Warnungen sollen grün dargestellt werden und nicht in ihrer ursprünglichen Severity.                                                   | `true`                      |
-| excludeProviders        | (Liste von Strings) Liste von Providern, dessen Meldungen nicht angezeigt werden sollen. Provider sind: "MOWAS", "DWD", "BIWAPP", "LHP"                      | `[]` (kein Filter)          |
-| hideCancelledWarnings   | (Boolean) Verstecke aufgehobene Warnungen                                                                                                                    | `false`                     |
-| maxAgeInHours           | (Integer) Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden                                                                        | `6`                         |
-| maxWidth                | (String) CSS Style für maximale Breite des Moduls, z.B. `220px`. Weg lassen, zum Deaktivieren.                                                               | `undefined` (deaktiviert)   |
-| mergeAlerts             | _Veraltet_. Bitte stattdessen **mergeAlertsById** verwenden.                                                                                                 | `-`                         |
-| mergeAlertsById         | (Boolean) Sofern Alerts für mehrere Gemeinden abgefragt werden, wird versucht gleiche Meldungen zusammenzufassen                                             | `true`                      |
-| mergeAlertsByTitle      | (Boolean) Sofern Alerts mit gleichem Titel vorliegen, wird versucht die Meldungen zusammenzufassen                                                           | `true`                      |
-| orderBySeverity         | (Boolean) Sollen Warnmeldungen absteigend nach ihrem Schweregrad angezeigt werden?                                                                           | `true`                      |
-| showCity                | (Boolean) Soll der Name der Gemeinde angezeigt werden?                                                                                                       | `true`                      |
-| showDate                | (Boolean) Soll das Datum der Meldung angezeigt werden?                                                                                                       | `true`                      |
-| showIcon                | (Boolean) Soll ein Warn-Symbol vor den Warnungen angezeigt werden?                                                                                           | `true`                      |
-| showNoWarning           | (Boolean) Lässt eine Meldung "Keine Warnungen" erscheinen, falls keine Ereignisse vorliegen.                                                                 | `false`                     |
-| updateIntervalInSeconds | (Integer) Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden                                                                         | `120` (2 Minuten)           |
-| theme                   | (String) Welches Theme soll angewendet werden?<br> Verfügbare Themes: `top`, `top-floating` und `side`                                                       | `side`                      |
+| Option                    | Typ        | Default                     | Beschreibung                                                                                                                                  |
+| ------------------------- | ---------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ags`                     | `string[]` | `["110000000000"]` (Berlin) | **Erforderlich**<br>Amtlicher Gemeindeschlüssel/Regionalschlüssel (AGS), 12-stellig. Werte unbedingt als String mit führenden Nullen angeben! |
+| `downgradeLhpSeverity`    | `boolean`  | `false`                     | **Optional**<br>Reduziert die Severity von Meldungen des Länderübergreifenden Hochwasser Portals (LHP) auf "Minor".                           |
+| `downgradeCancelSeverity` | `boolean`  | `true`                      | **Optional**<br>Aufgehobene Warnungen werden grün dargestellt und nicht in ihrer ursprünglichen Severity.                                     |
+| `excludeProviders`        | `string[]` | `[]` (kein Filter)          | **Optional**<br>Liste von Providern, dessen Meldungen nicht angezeigt werden sollen. Mögliche Werte: `MOWAS`, `DWD`, `BIWAPP`, `LHP`.         |
+| `hideCancelledWarnings`   | `boolean`  | `false`                     | **Optional**<br>Versteckt aufgehobene Warnungen.                                                                                              |
+| `maxAgeInHours`           | `number`   | `6`                         | **Optional**<br>Maximales Alter der Warnmeldungen in Stunden, bevor sie ausgefiltert werden.                                                  |
+| `maxWidth`                | `string`   | `undefined` (deaktiviert)   | **Optional**<br>CSS Style für maximale Breite des Moduls, z. B. `"220px"`. Weglassen, um zu deaktivieren.                                     |
+| `mergeAlerts`             | `boolean`  | `-`                         | _Veraltet_. Bitte stattdessen `mergeAlertsById` verwenden.                                                                                    |
+| `mergeAlertsById`         | `boolean`  | `true`                      | **Optional**<br>Fasst gleiche Meldungen zusammen, sofern Alerts für mehrere Gemeinden abgefragt werden.                                       |
+| `mergeAlertsByTitle`      | `boolean`  | `true`                      | **Optional**<br>Fasst Meldungen mit gleichem Titel zusammen.                                                                                  |
+| `orderBySeverity`         | `boolean`  | `true`                      | **Optional**<br>Zeigt Warnmeldungen absteigend nach ihrem Schweregrad an.                                                                     |
+| `showCity`                | `boolean`  | `true`                      | **Optional**<br>Zeigt den Namen der Gemeinde an.                                                                                              |
+| `showDate`                | `boolean`  | `true`                      | **Optional**<br>Zeigt das Datum der Meldung an.                                                                                               |
+| `showIcon`                | `boolean`  | `true`                      | **Optional**<br>Zeigt ein Warn-Symbol vor den Warnungen an.                                                                                   |
+| `showNoWarning`           | `boolean`  | `false`                     | **Optional**<br>Zeigt die Meldung "Keine Warnungen" an, falls keine Ereignisse vorliegen.                                                     |
+| `updateIntervalInSeconds` | `number`   | `120` (2 Minuten)           | **Optional**<br>Abstand in Sekunden, in dem Warnmeldungen vom NINA Server abgerufen werden.                                                   |
+| `theme`                   | `string`   | `"side"`                    | **Optional**<br>Welches Theme angewendet werden soll. Verfügbare Themes: `top`, `top-floating`, `side`.                                       |
 
 ## Contribution and Development
 
