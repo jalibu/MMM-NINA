@@ -53,29 +53,25 @@ module.exports = NodeHelper.create({
       const rawAgs = Array.isArray(config.ags) ? config.ags : [config.ags]
       const validAgs = getValidAgsEntries(rawAgs)
 
-      const responses = await Promise.all(
+      const responses = await Promise.allSettled(
         validAgs.map(async ({ normalized }) => {
-          try {
-            const response = await fetch(`https://warnung.bund.de/api31/dashboard/${toDashboardAgs(normalized)}.json`)
-            if (!response.ok) {
-              throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-            }
-            return await response.json()
-          } catch (e) {
-            return e instanceof Error ? e : new Error(String(e))
+          const response = await fetch(`https://warnung.bund.de/api31/dashboard/${toDashboardAgs(normalized)}.json`)
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`)
           }
+          return await response.json()
         })
       )
 
-      for (const [i, response] of responses.entries()) {
-        if (response instanceof Error) {
-          Log.warn(`API request for ${validAgs[i].raw} failed:`, response.message)
+      for (const [i, result] of responses.entries()) {
+        if (result.status === 'rejected') {
+          Log.warn(`API request for ${validAgs[i].raw} failed:`, result.reason)
         } else {
           const cityName = cityNamesByAgs.get(validAgs[i].normalized) ?? null
           if (!cityName) {
             Log.warn(`AGS '${validAgs[i].normalized}' konnte keiner Gemeinde zugeordnet werden.`)
           }
-          alerts.push(...transformNinaAlerts(response, config, cityName))
+          alerts.push(...transformNinaAlerts(result.value, config, cityName))
         }
       }
 
