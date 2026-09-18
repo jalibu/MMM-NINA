@@ -8,15 +8,8 @@ import { daten } from './Regionalschluessel_2026-03-31.json'
 
 declare const module: { exports: unknown }
 
-/**
- * Sucht den Gemeindenamen fuer einen 12-stelligen AGS.
- * @param ags - 12-stelliger AGS-Code
- * @returns Gemeindename oder null wenn nicht gefunden
- */
-function getCityName(ags: string): string | null {
-  const entry = daten.find((row) => row[0] === ags)
-  return entry?.[1] ?? null
-}
+// Einmaliger Aufbau der Lookup-Map statt linearer Suche bei jedem Aufruf.
+const cityNamesByAgs = new Map(daten.map((row) => [row[0], row[1]]))
 
 /**
  * Validiert AGS-Eingaben und liefert nur gueltige 12-stellige Werte.
@@ -78,7 +71,7 @@ module.exports = NodeHelper.create({
         if (response instanceof Error) {
           Log.warn(`API request for ${validAgs[i].raw} failed:`, response.message)
         } else {
-          const cityName = getCityName(validAgs[i].normalized)
+          const cityName = cityNamesByAgs.get(validAgs[i].normalized) ?? null
           if (!cityName) {
             Log.warn(`AGS '${validAgs[i].normalized}' konnte keiner Gemeinde zugeordnet werden.`)
           }
