@@ -54,7 +54,7 @@
     "@types/magicmirror-module": "^2.16.6",
     "commit-and-tag-version": "^13.2.1",
     "eslint": "^10.10.0",
-    "eslint-plugin-jsdoc": "^64.5.3",
+    "eslint-plugin-jsdoc": "^64.5.4",
     "prettier": "^3.9.8",
     "rollup": "^4.63.3",
     "simple-git-hooks": "^2.14.0",
